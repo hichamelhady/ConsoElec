@@ -1,6 +1,6 @@
 ## ConsoElec
 
-# Visualisation des données de consommation d’énergie de l'ENEDIS
+# Visualisation des données de la consommation annuelle de l'énergie électrique _ source de données : ENEDIS
 
 Le jeu de données que nous avons à notre disposition restitue la consommation électrique annuelle moyenne et totale et le nombre de sites par secteur d’activité, aux mailles géographiques région
 
