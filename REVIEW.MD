@@ -1,1 +1,7 @@
-Each project does a peer review of another groups' projects proposal (pick the one below you in this document) and write your review as a REVIEW.MD file in your project repository before Friday 09/02/2018 12h00 Lyon Time
+# Project review
+
+Group to review : [WhatYouEatIsWhoYouAre](https://github.com/Jboulery/wyeiwya)
+
+# Comments
+
+h*
