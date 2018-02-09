@@ -3,7 +3,7 @@
 
 ## 1. 5-Design sheets
 
-![Sheet1](ConcoElec/img/1.jpg)
+![Sheet1](/img/1.jpg)
 
 __Desing Sheet 1__
 
