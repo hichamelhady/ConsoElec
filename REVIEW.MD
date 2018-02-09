@@ -3,7 +3,7 @@
 Group to review : [WhatYouEatIsWhoYouAre](https://github.com/Jboulery/wyeiwya)
 
 # Comments
-
+this project has a intersting view to approach the data. The health issue is also a hot topic. The comparation of the consommation of the calory in each country can be a good indicateur, leading the disccussion of the eating behavior. 
 # Project Main idea
 Based on the composition of food, the project depicts countries' behaviour. 
 # Visualization method
