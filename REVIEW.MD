@@ -12,4 +12,6 @@ there are 3 parts:
 - Second  part: designed for caomparing 2 countries with a scatterplot and a spider chart.
 - Third part: a word map showing countries whih helps the user to select 2 coutries to compare.
 # How it works?
+Basically,it's possible to chose countris on the displaying list by ticking boxes. Then, both of scatter plot and spider chart appear. 
+
 
