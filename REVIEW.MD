@@ -14,4 +14,10 @@ there are 3 parts:
 # How it works?
 Basically,it's possible to chose countris on the displaying list by ticking boxes. Then, both of scatter plot and spider chart appear. 
 
+# Questions: 
+ 1. How to definy "the food " in the country? beacasue there could be various eating habits and food types in one country.Eg, In the sounth of china, people eat rice 3 times per day, but in the north of china, people eat noodle 3 times per day. who to find the balance ?
+ 
+ 2. possible suggestion : is it good idea to have the average calory consummation by #person#?  or maybe by #gender# ? 
+ 
+ 
 
