@@ -6,9 +6,9 @@ Dataset available on : https://data.enedis.fr/explore/dataset/consommation-elect
 
 
 - INSEE REGI
-Nom (identifiant)	insee_regi
-Type	texte
-Exemple	 32
+    Nom (identifiant)	insee_regi
+    Type	texte
+    Exemple	 32
 
 - INSEE DEPT
 Nom (identifiant)	insee_dept
