@@ -1,5 +1,5 @@
 ## ConsoElec
-réalisé par : 
+Projet réalisé par : 
 - EL BOUJDAINI Idriss 
 - EL-HADY Hicham 
 - KUN Francis 
