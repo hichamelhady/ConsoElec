@@ -2,7 +2,7 @@
 Projet réalisé par : 
 - EL BOUJDAINI Idriss 
 - EL-HADY Hicham 
-- KUN Francis 
+- LIU Kun  
 # Visualisation des données de la consommation annuelle de l'énergie électrique _ source de données : ENEDIS
 
 Enedis est une entreprise de service public, gestionnaire du réseau de distribution d'électricité. Elle développe, exploite, modernise le réseau électrique et gère les données associées.
