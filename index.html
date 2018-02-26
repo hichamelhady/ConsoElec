@@ -14,24 +14,33 @@
   <title>
   ConsoElec : Visualisation des données de la consommation d'électricité en France
   </title>
-
-</head>
-<HR size=2 align=center width="100%"
-
-<body>
+	
+  <script language="Javascript"> 
+		function change(){ 
+		window.moveTo(0,0); 
+		window.resizeTo(screen.width,screen.height-40); 
+} 
+</script> 
   
+</head>
+
+
+
+<body onload="change();"> 
+		<HR size=2 align=center width="100%">
+
   <header style="background-color :wheat">
     
     	
 			<img src="https://upload.wikimedia.org/wikipedia/fr/7/77/Logo_enedis_header.png"  width="25%" >    
     
       
-        <h21   style= "display : inline-block ; font-size:225%;font-family:verdana;color:BLack; text-align:center;"> 
+        <h21   style= " font-size:225%;font-family:verdana;color:BLack; text-align:center;"> 
         <b>     
   				 Projet ConsoElec
     		</b>
     	</h21>
-			<h22   style= "display : inline-block ; font-size:75%;font-family:verdana;color:BLack; text-align:center;"> 
+			<h22   style= " font-size:75%;font-family:verdana;color:BLack; text-align:center;"> 
         <b>     
   				 Visualisation de la consommation d'électricité en France
     		</b>
