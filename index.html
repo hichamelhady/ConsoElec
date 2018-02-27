@@ -76,27 +76,11 @@
   </div>
 
    <script>
-    var margin = {top: 10, right: 10, bottom: 10, left: 10},
-		    width = 500,
-  		  height = 400;
-    // format variables
-      var formatNumber = d3.format(",.0f"),    // zero decimal places
-          format = function(d) { return  formatNumber(d) + "MWH"; },
-          colorsank = d3.scaleOrdinal(d3.schemeCategory20);
-    // append the svg object to the body of the page
-      var svgsank = d3.select(".Sankeydiagram").append("svgsank")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.top + margin.bottom)
-          .append("g")
-          .attr("transform", 
-                "translate(" + margin.left + "," + margin.top + ")");
-    // Set the sankey diagram properties
-      var sankey = d3.sankey()
-          .nodeWidth(10)
-          .nodePadding(10)
-          .size([width, height]);
+		var    width = 500,
+  		       height = 400;
+  
 
-      var path = sankey.link();
+  
 
      
     
