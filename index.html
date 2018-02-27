@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="sankey.js"></script>
+
+  
   <meta charset="utf-8">
-  <script src="https://d3js.org/d3.v4.min.js"></script>
   <style>
     body { margin:0;position:fixed;top:0;right:6px;bottom:0;left:6px; }
     h21{
@@ -10,62 +13,167 @@
      h22{
       margin:0;position:fixed;top:90px;right:50px;left:0;
     }
+        div.tooltip {
+        color: #222;
+        background-color: #fff;
+        padding: .5em;
+        text-shadow: #f5f5f5 0 1px 0;
+        border-radius: 2px;
+        opacity: 0.9;
+        position: absolute;
+    	  }
+    .hidden {
+      display: none;}
+    .node rect {
+        cursor: move;
+        fill-opacity: .9;
+        shape-rendering: crispEdges;
+      }
+    .node text {
+        pointer-events: none;
+        text-shadow: 0.2px 0.2px 2px #fff;
+        font-size: 1.25em;
+      }
+
+    .link {
+        fill: none;
+        stroke: #000;
+        stroke-opacity: .5;
+      }
+    .link:hover {
+        stroke-opacity: 1;
+      }
   </style>
   <title>
   ConsoElec : Visualisation des données de la consommation d'électricité en France
   </title>
-
 </head>
 
-<body>
-  <HR size=2 align=center width="100%">
-  <header style="background-color :wheat">
-    
-    	
-			<img src="https://upload.wikimedia.org/wikipedia/fr/7/77/Logo_enedis_header.png"  width="25%" >    
-    
-      
-        <h21   style= "display : inline-block ; font-size:225%;font-family:verdana;color:BLack; text-align:center;"> 
+<body> 
+
+    <HR size=2 align=center width="100%">
+
+ 	 <header style="background-color :wheat">
+			<img src="https://upload.wikimedia.org/wikipedia/fr/7/77/Logo_enedis_header.png"  width="25%" >         
+       <h21   style= " font-size:225%;font-family:verdana;color:BLack; text-align:center;"> 
         <b>     
   				 Projet ConsoElec
     		</b>
     	</h21>
-			<h22   style= "display : inline-block ; font-size:75%;font-family:verdana;color:BLack; text-align:center;"> 
+			<h22   style= " font-size:75%;font-family:verdana;color:BLack; text-align:center;"> 
         <b>     
   				 Visualisation de la consommation d'électricité en France
     		</b>
     	</h22>
-
-
     	<img align ="right" src="https://www.developpez.com/public/images/ecoles/centrale-lyon.png" width="32%"  >
     
   </header>
-	<HR size=2 align=center width="100%"
+	<HR size=2 align=center width="100%">
 
-  <div>
-  	<div style=" background-color : red ; width : 400px ; height : 200px ; display : inline-block" >
-  	</div>
-    
-    <div style=" background-color : blue ; width : 400px ; height : 200px  ; display : inline-block">
-  	</div>
-
+  <div>   
+    <div class="mapZone" style=" background-color : snow ; display : inline-block; border: solid black 2px;" ></div>
+    	<div class="Sankeydiagram" style=" background-color : snow ; display : inline-block ;  border: solid black 2px;"></div>
+ 
   </div>
 
-  <script>
-    function create_scaterplot(e1, data, var_x, var_y, size){
-       d3.select()
-    	.apend()
-    	.attr()
-    	.attr()
-      
-    }
- 
+   <script>
+    var margin = {top: 10, right: 10, bottom: 10, left: 10},
+		    width = 500,
+  		  height = 400;
+    // format variables
+      var formatNumber = d3.format(",.0f"),    // zero decimal places
+          format = function(d) { return  formatNumber(d) + "MWH"; },
+          colorsank = d3.scaleOrdinal(d3.schemeCategory20);
+    // append the svg object to the body of the page
+      var svgsank = d3.select(".Sankeydiagram").append("svgsank")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+    // Set the sankey diagram properties
+      var sankey = d3.sankey()
+          .nodeWidth(10)
+          .nodePadding(10)
+          .size([width, height]);
+
+      var path = sankey.link();
+
+     
     
-  </script>
+    
+		var color = d3.scaleOrdinal(d3.schemeCategory20b);
+    
+    var tooltip = d3.select('body').append('div')
+            .attr('class', 'hidden tooltip');
+    
+		var svg = d3.select( ".mapZone" )
+  		.append( "svg" )
+		  .attr( "width", width )
+		  .attr( "height", height );
+
+    var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(2100)
+        		.translate([width/2, height/2]);
+
+    var path = d3.geoPath() // d3.geo.path avec d3 version 3
+                 .projection(projection);
+    
+   
+    d3.csv("data.csv", function(data) {
+    color.domain([0, 2000]);
+
+    d3.json("regions.geojson", function(json) {
+      //On fusionne les donnees avec le GeoJSON des regions
+      for (var i = 0; i < data.length; i++) {
+ 					for(var j=0; j<json.features.length; j++) {
+          if(data[i].Nom_region == json.features[j].properties.nom) {
+        		var dataValue = parseFloat(data[i].sum_Nombre_d_habitants);
+          	json.features[j].properties.value= dataValue;
+      	}
+        }
+      }
+
+      svg.selectAll("path")
+         .data(json.features)
+         .enter()
+         .append("path")
+         .attr("d", path)
+         .style("stroke", "#ffffff")
+         .style("stroke-width", "1")
+         .style("fill", function(d) {
+              var value = d.properties.value;
+              return color(value);
+      });
+      
+      svg.selectAll("path")
+      	 .on('mousemove', function(d) {
+                    var mouse = d3.mouse(svg.node()).map(function(d) {
+                        return parseInt(d);
+                    });
+                    tooltip.classed('hidden', false)
+                        	 .attr('style', 'left:' + (mouse[0] + 15) + 
+                                 'px; top:' + (mouse[1] - 15 ) + "px; border: 2px solid ")
+                       	   .html("<p><strong>"+ d.properties.nom + " : "  +"</strong></p><p>"+ d.properties.value);
+                })
+       
+         .on('mouseout', function() {
+                    tooltip.classed('hidden', true);
+
+         });
+    });
+}); 
+
+	
+
+      
+</script>  
+
+    
 		<footer>
- 			 <p>Posted by: Hicham EL-HADY & Idriss ELBOUJDAINI & Francis KUN </p>
+ 			 <p>Posted by: Hicham EL-HADY _ Idriss ELBOUJDAINI _ Francis KUN </p>
  			 <p>For more information: <a href="https://github.com/hichamelhady/ConsoElec">
   https://github.com/hichamelhady/ConsoElec</a>.</p>
 		</footer>
 
 </body>
+
