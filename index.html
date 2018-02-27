@@ -119,10 +119,10 @@
                  .projection(projection);
     
    
-    d3.csv("data.csv", function(data) {
+    d3.csv("DATA/data.csv", function(data) {
     color.domain([0, 2000]);
 
-    d3.json("regions.geojson", function(json) {
+    d3.json("DATA/regions.geojson", function(json) {
       //On fusionne les donnees avec le GeoJSON des regions
       for (var i = 0; i < data.length; i++) {
  					for(var j=0; j<json.features.length; j++) {
