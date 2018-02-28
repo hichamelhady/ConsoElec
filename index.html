@@ -1,18 +1,39 @@
-<!DOCTYPE html>
+<html>
 <head>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-
-  
   <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <style>
-    body { margin:0;position:fixed;top:0;right:6px;bottom:0;left:6px; }
-    h21{
-      margin:0;position:fixed;top:40px;right:50px;left:0;
-    }
-     h22{
-      margin:0;position:fixed;top:90px;right:50px;left:0;
-    }
-        div.tooltip {
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", sans-serif;
+      } 
+    	h21{
+      	margin:0;position:fixed;top:40px;right:50px;left:0;
+   	 	}
+     	h22{
+    	  margin:0;position:fixed;top:90px;right:50px;left:0;
+    	}
+      .node rect {
+        cursor: move;
+        fill-opacity: .9;
+        shape-rendering: crispEdges;
+      }
+      .node text {
+        pointer-events: none;
+        text-shadow: 0px 0px 2px #fff;
+        font-size: .8em;
+      }
+
+      .link {
+        fill: none;
+        stroke: #000;
+        stroke-opacity: .5;
+      }
+      .link:hover {
+        stroke-opacity: 1;
+      }
+	  
+	  div.tooltip {
         color: #222;
         background-color: #fff;
         padding: .5em;
@@ -23,38 +44,67 @@
     	  }
     .hidden {
       display: none;}
-    .node rect {
-        cursor: move;
-        fill-opacity: .9;
-        shape-rendering: crispEdges;
-      }
-    .node text {
-        pointer-events: none;
-        text-shadow: 0.2px 0.2px 2px #fff;
-        font-size: 1.25em;
-      }
-
-    .link {
-        fill: none;
-        stroke: #000;
-        stroke-opacity: .5;
-      }
-    .link:hover {
-        stroke-opacity: 1;
-      }
+	  .menu {
+    	position: absolute;
+      top: 15px;
+      left: 15px;
+    }
+    
+    text {
+      text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+    }
+    
+    .x-tick {
+      stroke: black;
+      opacity: 0.5;
+    }
+    
+    .x-tick-long {
+      stroke: black;
+      stroke-dasharray: 5, 5;
+      opacity: 0.3;
+    }
+    
+    .y-tick circle {
+      fill: grey;
+      font-size: 10px;
+      opacity: 0.1;
+    }
+    
+    .y-tick text {
+      font-size: 10px;
+      opacity: 0.5;
+    }
+    
+    .label text {
+      font-size: 10px;
+    }
+    
+    .dot-run {
+      fill: #B06600;
+    }
+    
+    .sums {
+      fill: #B06600;
+      fill-opacity: 0.35;
+      stroke: #B06600;
+      stroke-width: 1px;
+    }
+    
+    .hover-dot {
+      opacity: 0;
+    }
+	  
   </style>
-  <title>
-  ConsoElec : Visualisation des données de la consommation d'électricité en France
-  </title>
 </head>
+  <body>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="sankey.js"></script>
+     <HR size=2 align=center width="100%">
 
-<body> 
-
-    <HR size=2 align=center width="100%">
-
- 	 <header style="background-color :wheat">
+    <header style="background-color :wheat">
 			<img src="https://upload.wikimedia.org/wikipedia/fr/7/77/Logo_enedis_header.png"  width="25%" >         
-       <h21   style= " font-size:225%;font-family:verdana;color:BLack; text-align:center;"> 
+      <h21   style= " font-size:225%;font-family:verdana;color:BLack; text-align:center;"> 
         <b>     
   				 Projet ConsoElec
     		</b>
@@ -68,95 +118,551 @@
     
   </header>
 	<HR size=2 align=center width="100%">
+    
+    <div>
+      	     <div id="mapzone" style="background-color: snow;  display: inline-block;border: solid black 2px;"></div>
+      
+	 <div id="Sankeydiag" style="background-color: snow; display: inline-block; border: solid black 2px;"></div>
 
-  <div>   
-    <div class="mapZone" style=" background-color : snow ; display : inline-block; border: solid black 2px;" ></div>
-    	<div class="Sankeydiagram" style=" background-color : snow ; display : inline-block ;  border: solid black 2px;"></div>
- 
+	     <div id="area2" style="background-color: snow;  display: inline-block;border: solid black 2px;"></div>
   </div>
-
-   <script>
-		var    width = 500,
-  		       height = 400;
-  
-
-  
-
-     
     
     
-		var color = d3.scaleOrdinal(d3.schemeCategory20b);
-    
+    <script>
+      // set the dimensions and margins of the graph
+      var margin = {top: 10, right: 10, bottom: 10, left: 10},
+   	  width = 560
+    	height = 420
+
+    var cite ="";
+		var color2 = d3.scaleOrdinal(d3.schemeCategory20b);
+        
     var tooltip = d3.select('body').append('div')
             .attr('class', 'hidden tooltip');
-    
-		var svg = d3.select( ".mapZone" )
+
+		var svg2 = d3.select( "#mapzone" )
   		.append( "svg" )
-		  .attr( "width", width )
-		  .attr( "height", height );
-
-    var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(2100)
-        		.translate([width/2, height/2]);
-
-    var path = d3.geoPath() // d3.geo.path avec d3 version 3
+		  .attr( "width", 580 )
+		  .attr( "height", 440 );
+    var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(2500)
+            		.translate([width/2, height/1.85]);
+    var path2 = d3.geoPath() 
                  .projection(projection);
-    
+				 
+	
+    d3.csv("data_t.csv", function(data) {
+    color2.domain([0,2000]);
    
-    d3.csv("DATA/data.csv", function(data) {
-    color.domain([0, 2000]);
-
-    d3.json("DATA/regions.geojson", function(json) {
-      //On fusionne les donnees avec le GeoJSON des regions
+    d3.json("regions.geojson", function(json) {
+  
       for (var i = 0; i < data.length; i++) {
  					for(var j=0; j<json.features.length; j++) {
           if(data[i].Nom_region == json.features[j].properties.nom) {
         		var dataValue = parseFloat(data[i].sum_Nombre_d_habitants);
           	json.features[j].properties.value= dataValue;
       	}
+		
         }
       }
-
-      svg.selectAll("path")
+      svg2.selectAll("path")
          .data(json.features)
          .enter()
          .append("path")
-         .attr("d", path)
+         .attr("d", path2)
          .style("stroke", "#ffffff")
          .style("stroke-width", "1")
          .style("fill", function(d) {
-              var value = d.properties.value;
-              return color(value);
-      });
+             var value = d.properties.value;
+             return color2(value);});
       
-      svg.selectAll("path")
+      
+	  
+	  //------------------------------------------------------------------------------------
+	  var margin3 = {top: 10, right: 10, bottom: 10, left: 10};
+    
+    var width3 = 560 ,
+    		height3 = 420;
+     var svgx = d3.select("#area2").append("svg")
+	 				.attr("width", 580 )
+          .attr("height", 440)
+       	  .append("g")
+          .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+		  var center = svgx.append("g")
+    	.attr("transform", "translate(" + width3 / 2 + "," + height3 / 2 + ")");
+		//------------------------------------------------------------------------------------------
+		  
+      svg2.selectAll("path")
       	 .on('mousemove', function(d) {
-                    var mouse = d3.mouse(svg.node()).map(function(d) {
-                        return parseInt(d);
+                    var mouse = d3.mouse(svg2.node()).map(function(d) {
+                        return  parseInt(d);
                     });
                     tooltip.classed('hidden', false)
                         	 .attr('style', 'left:' + (mouse[0] + 15) + 
                                  'px; top:' + (mouse[1] - 15 ) + "px; border: 2px solid ")
                        	   .html("<p><strong>"+ d.properties.nom + " : "  +"</strong></p><p>"+ d.properties.value);
                 })
-       
-         .on('mouseout', function() {
+      		.on('mouseout', function() {
                     tooltip.classed('hidden', true);
 
-         });
+         })
+      		
+				//**********************************************
+				.on('click',function(d){
+				  // var mouse = d3.mouse(svg2.node()).map(function(d) {
+				 //  console.log((d.properties.nom));
+				   // return  parseInt(d);
+					cite= d.properties.nom;
+					//console.log(cite);
+					
+					
+					
+					
+					///// -------------------------------------------------------  
+var s = d3.select(svgx);
+s.remove();
+	
+	var mode = "sums";
+    // how to clear
+	
+		
+    
+
+    
+    center.on("click", function() {
+      if (mode == "sums") {
+        mode = "avg";
+        change();
+      } else {
+        mode = "sums";
+        change();
+      }
+    })
+    
+    var radius = Math.min(width3, height3) / 2 + 10;
+    var radiusTextSpacing = 50;
+    
+   // var parseTime = d3.timeParse("%M:%S"),
+       // formatTime = d3.timeFormat("%M:%S");
+    
+    var fullCircle = 2 * Math.PI;
+    
+    var dotRadius = 2;
+    
+    var x = d3.scaleBand()
+    	.range([0, 2 * Math.PI]);
+    
+    var y = d3.scaleRadial()
+    	.range([0, radius]);
+    
+ var z = d3.scaleRadial()
+    	.range([radius, 0]);
+    
+    // A filter shamelessly stolen from Nadieh Bremer
+    var filter = svgx.append('defs').append('filter').attr('id','glow'),
+      feGaussianBlur = filter.append('feGaussianBlur').attr('stdDeviation','7').attr('result','coloredBlur'),
+      feMerge = filter.append('feMerge'),
+      feMergeNode_1 = feMerge.append('feMergeNode').attr('in','coloredBlur'),
+      feMergeNode_2 = feMerge.append('feMergeNode').attr('in','SourceGraphic');
+    
+    var areasums = d3.areaRadial()
+    	.angle(function(d) { return x(d.event)})
+    	.outerRadius(function(d) { return y(d.Nombre_de_site)})
+    	.curve(d3.curveCatmullRomClosed);
+    
+    var areaavg = d3.lineRadial()
+		.angle(function(d) { return x(d.event)})
+    	.radius(function(d){ return z(d.Average_conso_moyenne_Mwh); })
+    	.curve(d3.curveCatmullRomClosed);
+    
+    
+    var sums, hoverCirclessums, labels;
+    var yTick, yAxis;
+ 
+	
+    d3.csv( cite +".csv", function(d) {
+			d.Average_conso_moyenne_Mwh = +d.Average_conso_moyenne_Mwh;    
+      d.Nombre_de_site = +d.Nombre_de_site;
+      return d;
+	  
+    }, function(error, data) {
+      if (error) throw error;
+      
+      data = data.sort(function(a, b) {
+        return a.event < b.event;
+      });
+	  
+	  
+      
+      x.domain(data.map(function(d) {
+        return d.event;
+      }));
+      
+      y.domain([0, d3.max(data, function(d) {
+        return d.Nombre_de_site;
+      })]);
+      
+      var slowestTime = "24:00";
+      
+	    z.domain([0, d3.max(data, function(d) {
+        return d.Average_conso_moyenne_Mwh
+      })]);
+	  
+    
+      
+      var xAxis = center.append("g")
+      	.attr("text-anchor", "middle");
+      
+      var xTick = xAxis.selectAll("g")
+      	.data(data)
+      .enter().append("g");
+      
+      xTick.append("line")
+      	.attr("class", "x-tick")
+      	.attr("y2", radius)
+      	.attr("transform", function(d) {
+          return "rotate(" + (x(d.event) / fullCircle * 360) + ")";
+        });
+      
+      xTick.append("line")
+      	.attr("class", "x-tick-long")
+      	.attr("y1", radius)
+      	.attr("y2", radius + 30)
+      	.attr("transform", function(d) {
+          return "rotate(" + (x(d.event) / fullCircle * 360) + ")";
+        });
+      
+      yAxis = center.append("g")
+      	.attr("text-anchor", "middle");
+     	
+      addAxis(0);
+      
+      labels = xTick.append("g")
+      	.attr("class", "label");      
+      
+      labels.append("text")
+      	.attr("y", radius + radiusTextSpacing)
+      	.attr("x", function(d) {
+        	return Math.cos(x(d.event) + Math.PI / 2) * (radius + radiusTextSpacing);
+      	})
+      	.attr("y", function(d) {
+        	return Math.sin(x(d.event) + Math.PI / 2) * (radius + radiusTextSpacing);
+      	})
+      	.attr("dy", "0.35em")
+      	.text(function(d) {
+          return d.event;
+        });
+      
+      sums = center.append("g");
+      
+      sums.append("path")
+      	.datum(data)
+      	.attr("class", "sums")
+      	.attr("d", areasums)
+      	.attr("transform", "rotate(180)")
+      	.style("filter" , "url(#glow)")
+        .on("mouseover", function() {
+        	d3.select(".times").transition()
+            .style("fill-opacity", 0.05);
+      	})
+      	.on("mouseout", function() {
+        	d3.select(".times").transition()
+            .style("fill-opacity", 0.35);
+      	});
+            
+      sums.selectAll("circle")
+      	.data(data)
+      .enter().append("circle")
+      	.attr("class", "dot-run")	
+     		.attr("cy", function(d) {
+          return y(d.Nombre_de_site);
+        })
+      	.attr("r", dotRadius)
+      	.attr("transform", function(d) {
+          return "rotate(" + (x(d.event)) / fullCircle * 360 + ")";
+        })
+      	.style("filter" , "url(#glow)");
+            
+      hoverCirclessums = center.append("g");
+      
+      hoverCirclessums.selectAll("circle")
+        .data(data)
+      .enter().append("circle")
+      	.attr("class", "hover-dot")	
+     		.attr("cy", function(d) {
+          return y(d.Nombre_de_site);
+        })
+      	.attr("r", dotRadius * 3)
+      	.attr("transform", function(d) {
+          return "rotate(" + (x(d.event)) / fullCircle * 360 + ")";
+        })
+      	.on("mouseover", function(d) {
+        	var multiplier = mode == "sums" ? y(d.Nombre_de_site) : z(d.Average_conso_moyenne_Mwh);
+        	var unit = d.Nombre_de_site == 1 ? " run" : " Sites";
+        	var labelText = mode == "sums" ? d.Nombre_de_site + unit : d.Average_conso_moyenne_Mwh +" Mwh par site";
+        
+        	d3.select(this.parentNode).append("text")
+            .attr("x", function() {
+              return Math.cos(x(d.event) + Math.PI / 2) * multiplier;
+            })
+            .attr("y", function() {
+              return Math.sin(x(d.event) + Math.PI / 2) * multiplier;
+            })
+          	.attr("dy", "-1em")
+          	.attr("text-anchor", "middle")
+          	.text(labelText);
+      	})
+      	.on("mouseout", function(d) {
+        	d3.select(this.parentNode).select("text").remove();
+      	});
+      
+  
+    });
+    
+    function change() {
+        sums.select("path")
+          .transition()
+          .duration(1000)
+          .attr("d", function(d) {
+          	return mode == "avg" ? areaavg(d) : areasums(d);
+        	})
+          .style("fill", function() {
+          	return mode == "avg" ? "none" : "#B06600";
+        	});
+      
+        sums.selectAll("circle")
+          .transition()
+          .duration(1000)
+          .attr("cy", function(d) {
+            return mode == "avg" ? z(d.Average_conso_moyenne_Mwh) : y(d.Nombre_de_site);
+          })
+          .style("fill", function() {
+          	return mode == "avg" ? "#bfbd00" : "#B06600";
+        	});
+        
+        hoverCirclessums
+          .selectAll("circle")
+          .attr("cy", function(d) {
+             return mode == "avg" ? z(d.Average_conso_moyenne_Mwh) : y(d.Nombre_de_site);
+          });
+        
+        yTick.selectAll("circle")
+          .transition()
+          .duration(250)
+        	.attr("r", 0);
+        
+        yTick.selectAll("text")
+          .transition()
+          .duration(250)
+        	.attr("y", 0)
+        	.on("end", function() {
+        		yAxis.selectAll("g").remove();
+          	addAxis(250);
+        	})
+    }
+    
+    function addAxis(sums) {
+        yTick = yAxis.selectAll("g")
+          .data(function() {
+          	return mode == "sums" ? y.ticks(5).slice(1) : z.ticks(5).slice(0, -1);
+        	})
+        .enter().append("g")
+          .attr("class", "y-tick");
+
+        yTick.append("circle")
+          .transition()
+          .duration(sums * 3)
+          .attr("r", function(d) {
+          	return mode == "sums" ? y(d) : z(d);
+          });
+
+        yTick.append("text")
+          .transition()
+          .duration(sums * 3)
+          .attr("y", function(d) {
+          	return mode == "sums" ? -y(d) : -z(d);
+          })
+          .attr("dy", "0.35em")
+          .text(function(d) {
+          	return mode == "sums" ? d : d;
+          });
+    }
+
+					
+					});
+					
+					
+					
+       
+        
     });
 }); 
 
-	
 
-      
-</script>  
 
-    
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+ // set the dimensions and margins of the graph
+ var margin2 = {top: 10, right: 10, bottom: 10, left: 10}
+      margin2.width = 600 ;
+      margin2.height = 600 ;
+
+      // format variables
+      var formatNumber = d3.format(",.0f"),    // zero decimal places
+          format = function(d) { return  formatNumber(d) + "MWH"; },
+          color = d3.scaleOrdinal(d3.schemeCategory20);
+
+      // dimensions sankey append the svg object to the body of the page
+      var svg = d3.select("#Sankeydiag").append("svg")
+          .attr("width", 580 )
+          .attr("height", 440 )
+        .append("g")
+          .attr("transform", 
+                "translate(" + margin2.left + "," + margin2.top + ")");
+
+      // Set the sankey diagram properties
+      var sankey = d3.sankey()
+          .nodeWidth(10)
+          .nodePadding(10)
+          .size([width, height]);
+
+      var path = sankey.link();
+
+      // load the data
+      d3.queue()
+          .defer(d3.csv, "data.csv")
+          .await(ready);
+
+      function ready(error, csv){
+
+        // create an array to push all sources and targets, before making them unique
+        var arr = [];
+        csv.forEach(function(d){
+
+          arr.push(d.source);
+          arr.push(d.target);
+
+        });
+
+        // create nodes array
+        var nodes = arr.filter(onlyUnique).map(function(d,i){
+          return {
+            node: i,
+            name: d
+          }
+        });
+
+        // create links array
+        var links = csv.map(function(csv_row){
+          return {
+            source: getNode("source"),
+            target: getNode("target"),
+            value: +csv_row.value
+          }
+
+          function getNode(type){
+            return nodes.filter(function(node_object){ return node_object.name == csv_row[type]; })[0].node;
+          }
+
+        });
+
+        sankey
+            .nodes(nodes)
+            .links(links)
+            .layout(32);
+
+        // add in the links
+        var link = svg.append("g").selectAll(".link")
+            .data(links)
+          .enter().append("path")
+            .attr("class", "link")
+            .attr("d", path)
+            .style("stroke", function(d){
+              return color(d.source.name.replace(/ .*/, ""));
+            })
+            .style("stroke-width", function(d) { return Math.max(1, d.dy); })
+            .sort(function(a, b) { return b.dy - a.dy; });
+
+        // add the link titles
+        link.append("title")
+              .text(function(d) {
+              return d.source.name + " â†’ " + 
+                      d.target.name + "\n" + format(d.value); });
+
+        // add in the nodes
+        var node = svg.append("g").selectAll(".node")
+            .data(nodes)
+          .enter().append("g")
+            .attr("class", "node")
+            .attr("transform", function(d) { 
+              return "translate(" + d.x + "," + d.y + ")"; 
+            })
+            .call(d3.drag()
+              .subject(function(d) {
+                return d;
+              })
+              .on("start", function() {
+                this.parentNode.appendChild(this);
+              })
+              .on("drag", dragmove));
+
+        // add the rectangles for the nodes
+        node.append("rect")
+            .attr("height", function(d) { return d.dy < 0 ? .1 : d.dy; })
+            .attr("width", sankey.nodeWidth())
+            .style("fill", function(d) { 
+              return d.color = color(d.name.replace(/ .*/, "")); 
+            })
+            .style("stroke", function(d) { 
+              return d3.rgb(d.color).darker(2); 
+            })
+          .append("title")
+            .text(function(d) { 
+              return d.name + "\n" + format(d.value); 
+            });
+
+        // add in the title for the nodes
+        node.append("text")
+            .attr("x", -6)
+            .attr("y", function(d) { return d.dy / 2; })
+            .attr("dy", ".35em")
+            .attr("text-anchor", "end")
+            .attr("transform", null)
+            .text(function(d) { return d.name; })
+          .filter(function(d) { return d.x < width / 2; })
+            .attr("x", 6 + sankey.nodeWidth())
+            .attr("text-anchor", "start");
+
+        // the function for moving the nodes
+        function dragmove(d) {
+          d3.select(this)
+            .attr("transform", 
+                  "translate(" 
+                     + d.x + "," 
+                     + (d.y = Math.max(
+                        0, Math.min(height - d.dy, d3.event.y))
+                       ) + ")");
+          sankey.relayout();
+          link.attr("d", path);
+        }
+
+      }
+
+      // unique values of an array
+      function onlyUnique(value, index, self) { 
+          return self.indexOf(value) === index;
+      }
+		
+		
+	//-------------------------------------------------------------------------------------------------------------------------------
+</script>
+     
 		<footer>
  			 <p>Posted by: Hicham EL-HADY _ Idriss ELBOUJDAINI _ Francis KUN </p>
  			 <p>For more information: <a href="https://github.com/hichamelhady/ConsoElec">
   https://github.com/hichamelhady/ConsoElec</a>.</p>
 		</footer>
-
+    
 </body>
-
+</html>
