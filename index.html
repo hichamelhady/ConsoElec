@@ -6,12 +6,13 @@
       body {
         margin: 0;
         font-family: "Helvetica Neue", sans-serif;
-      } 
+      }
+
     	h21{
-      	margin:0;position:fixed;top:40px;right:50px;left:0;
+      	margin:0;position:absolute;top:40px;right:50px;left:0;
    	 	}
      	h22{
-    	  margin:0;position:fixed;top:90px;right:50px;left:0;
+    	  margin:0;position:absolute;top:90px;right:50px;left:0;
     	}
       .node rect {
         cursor: move;
@@ -21,18 +22,20 @@
       .node text {
         pointer-events: none;
         text-shadow: 0px 0px 2px #fff;
-        font-size: .8em;
+        font-size: 1.2em;
+        font-weight: 680 ;
+
       }
 
       .link {
         fill: none;
         stroke: #000;
-        stroke-opacity: .5;
+        stroke-opacity: 0.25;
       }
       .link:hover {
         stroke-opacity: 1;
       }
-	  
+
 	  div.tooltip {
         color: #222;
         background-color: #fff;
@@ -102,7 +105,7 @@
     <script src="sankey.js"></script>
      <HR size=2 align=center width="100%">
 
-    <header style="background-color :wheat">
+    <div style="background-color :wheat;">
 			<img src="https://upload.wikimedia.org/wikipedia/fr/7/77/Logo_enedis_header.png"  width="25%" >         
       <h21   style= " font-size:225%;font-family:verdana;color:BLack; text-align:center;"> 
         <b>     
@@ -116,7 +119,7 @@
     	</h22>
     	<img align ="right" src="https://www.developpez.com/public/images/ecoles/centrale-lyon.png" width="32%"  >
     
-  </header>
+  </div>
 	<HR size=2 align=center width="100%">
     
     <div>
@@ -511,7 +514,7 @@ s.remove();
       // format variables
       var formatNumber = d3.format(",.0f"),    // zero decimal places
           format = function(d) { return  formatNumber(d) + "MWH"; },
-          color = d3.scaleOrdinal(d3.schemeCategory20);
+          color = d3.scaleOrdinal(d3.schemeCategory10);
 
       // dimensions sankey append the svg object to the body of the page
       var svg = d3.select("#Sankeydiag").append("svg")
@@ -570,12 +573,12 @@ s.remove();
         sankey
             .nodes(nodes)
             .links(links)
-            .layout(32);
+            .layout(239);
 
         // add in the links
         var link = svg.append("g").selectAll(".link")
             .data(links)
-          .enter().append("path")
+          	.enter().append("path")
             .attr("class", "link")
             .attr("d", path)
             .style("stroke", function(d){
@@ -587,8 +590,11 @@ s.remove();
         // add the link titles
         link.append("title")
               .text(function(d) {
-              return d.source.name + " â†’ " + 
-                      d.target.name + "\n" + format(d.value); });
+              return  d.source.name  
+                		  + "\n" + " Secteur : " 
+                			+ d.target.name 
+                			+ "\n Energie consommée : " 
+                		  + format(d.value) ; });
 
         // add in the nodes
         var node = svg.append("g").selectAll(".node")
@@ -610,7 +616,7 @@ s.remove();
         // add the rectangles for the nodes
         node.append("rect")
             .attr("height", function(d) { return d.dy < 0 ? .1 : d.dy; })
-            .attr("width", sankey.nodeWidth())
+            .attr("width", 2*sankey.nodeWidth())
             .style("fill", function(d) { 
               return d.color = color(d.name.replace(/ .*/, "")); 
             })
@@ -631,7 +637,7 @@ s.remove();
             .attr("transform", null)
             .text(function(d) { return d.name; })
           .filter(function(d) { return d.x < width / 2; })
-            .attr("x", 6 + sankey.nodeWidth())
+            .attr("x", 12 + sankey.nodeWidth())
             .attr("text-anchor", "start");
 
         // the function for moving the nodes
