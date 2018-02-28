@@ -153,7 +153,7 @@
     d3.csv("DATA/data_t.csv", function(data) {
     color2.domain([0,2000]);
    
-    d3.json("regions.geojson", function(json) {
+    d3.json("DATA/regions.geojson", function(json) {
   
       for (var i = 0; i < data.length; i++) {
  					for(var j=0; j<json.features.length; j++) {
