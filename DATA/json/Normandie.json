@@ -1,0 +1,11 @@
+[
+    [
+      {"area": "Residentiel ", "value":  6.51859133},
+      {"area": "Professionnel", "value": 10.51228496},
+      {"area": "Agriculture ", "value": 137.1374566 },
+      {"area": "industrie", "value": 996.6686617 },
+      {"area": "Tertiaire ", "value": 238.9533041 },
+      {"area": "affecte ", "value": 290.943753}
+  	]
+
+  ]
