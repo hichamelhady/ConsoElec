@@ -150,7 +150,7 @@
                  .projection(projection);
 				 
 	
-    d3.csv("data_t.csv", function(data) {
+    d3.csv("DATA/data_t.csv", function(data) {
     color2.domain([0,2000]);
    
     d3.json("regions.geojson", function(json) {
@@ -531,7 +531,7 @@ s.remove();
 
       // load the data
       d3.queue()
-          .defer(d3.csv, "data.csv")
+          .defer(d3.csv, "DATA/data.csv")
           .await(ready);
 
       function ready(error, csv){
