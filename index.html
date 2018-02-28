@@ -2,6 +2,8 @@
 <head>
   <meta charset="utf-8">
   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,500,700" rel="stylesheet">
+
   <style>
       body {
         margin: 0;
@@ -56,53 +58,62 @@
     text {
       text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
     }
-    
-    .x-tick {
-      stroke: black;
-      opacity: 0.5;
-    }
-    
-    .x-tick-long {
-      stroke: black;
-      stroke-dasharray: 5, 5;
-      opacity: 0.3;
-    }
-    
-    .y-tick circle {
-      fill: grey;
-      font-size: 10px;
-      opacity: 0.1;
-    }
-    
-    .y-tick text {
-      font-size: 10px;
-      opacity: 0.5;
-    }
-    
-    .label text {
-      font-size: 10px;
-    }
-    
-    .dot-run {
-      fill: #B06600;
-    }
-    
-    .sums {
-      fill: #B06600;
-      fill-opacity: 0.35;
-      stroke: #B06600;
-      stroke-width: 1px;
-    }
-    
-    .hover-dot {
-      opacity: 0;
-    }
+			.axis {
+font: 15px sans-serif;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+#chart {
+	position: absolute;
+	top: 50px;
+	left: 100px;
+}
+  .toolTip {
+  pointer-events: none;
+	position: absolute;
+    display: none;
+  min-width: 50px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  padding: 9px 14px 6px 14px;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 1.3;
+  color: #5B6770;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, .15);
+}
+.toolTip:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid white;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -12px;
+}  
+.toolTip span {
+	font-weight: 500;
+  color: #081F2C;
+}
+   
+
+  
 	  
   </style>
 </head>
   <body>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="sankey.js"></script>
+    <script src="RadarChart.js"></script>
+
      <HR size=2 align=center width="100%">
 
     <div style="background-color :wheat;">
@@ -145,7 +156,7 @@
 
 		var svg2 = d3.select( "#mapzone" )
   		.append( "svg" )
-		  .attr( "width", 580 )
+		  .attr( "width", 590 )
 		  .attr( "height", 440 );
     var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(2500)
             		.translate([width/2, height/1.85]);
@@ -156,7 +167,7 @@
     d3.csv("DATA/data_t.csv", function(data) {
     color2.domain([0,2000]);
    
-    d3.json("DATA/regions.geojson", function(json) {
+    d3.json("DATA/json/regions.geojson", function(json) {
   
       for (var i = 0; i < data.length; i++) {
  					for(var j=0; j<json.features.length; j++) {
@@ -178,22 +189,7 @@
              var value = d.properties.value;
              return color2(value);});
       
-      
-	  
-	  //------------------------------------------------------------------------------------
-	  var margin3 = {top: 10, right: 10, bottom: 10, left: 10};
-    
-    var width3 = 560 ,
-    		height3 = 420;
-     var svgx = d3.select("#area2").append("svg")
-	 				.attr("width", 580 )
-          .attr("height", 440)
-       	  .append("g")
-          .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
-		  var center = svgx.append("g")
-    	.attr("transform", "translate(" + width3 / 2 + "," + height3 / 2 + ")");
-		//------------------------------------------------------------------------------------------
-		  
+  
       svg2.selectAll("path")
       	 .on('mousemove', function(d) {
                     var mouse = d3.mouse(svg2.node()).map(function(d) {
@@ -211,298 +207,31 @@
       		
 				//**********************************************
 				.on('click',function(d){
-				  // var mouse = d3.mouse(svg2.node()).map(function(d) {
-				 //  console.log((d.properties.nom));
-				   // return  parseInt(d);
+
 					cite= d.properties.nom;
-					//console.log(cite);
-					
-					
-					
-					
-					///// -------------------------------------------------------  
-var s = d3.select(svgx);
-s.remove();
-	
-	var mode = "sums";
-    // how to clear
-	
-		
-    
+d3.json("DATA/json/"cite+".json", function(error, data) {
+var config = {
+    w: 490,
+    h: 440,
+    maxValue:900,
+    levels: 4,	
+    ExtraWidthX: 100
+}
 
-    
-    center.on("click", function() {
-      if (mode == "sums") {
-        mode = "avg";
-        change();
-      } else {
-        mode = "sums";
-        change();
-      }
-    })
-    
-    var radius = Math.min(width3, height3) / 2 + 10;
-    var radiusTextSpacing = 50;
-    
-   // var parseTime = d3.timeParse("%M:%S"),
-       // formatTime = d3.timeFormat("%M:%S");
-    
-    var fullCircle = 2 * Math.PI;
-    
-    var dotRadius = 2;
-    
-    var x = d3.scaleBand()
-    	.range([0, 2 * Math.PI]);
-    
-    var y = d3.scaleRadial()
-    	.range([0, radius]);
-    
- var z = d3.scaleRadial()
-    	.range([radius, 0]);
-    
-    // A filter shamelessly stolen from Nadieh Bremer
-    var filter = svgx.append('defs').append('filter').attr('id','glow'),
-      feGaussianBlur = filter.append('feGaussianBlur').attr('stdDeviation','7').attr('result','coloredBlur'),
-      feMerge = filter.append('feMerge'),
-      feMergeNode_1 = feMerge.append('feMergeNode').attr('in','coloredBlur'),
-      feMergeNode_2 = feMerge.append('feMergeNode').attr('in','SourceGraphic');
-    
-    var areasums = d3.areaRadial()
-    	.angle(function(d) { return x(d.event)})
-    	.outerRadius(function(d) { return y(d.Nombre_de_site)})
-    	.curve(d3.curveCatmullRomClosed);
-    
-    var areaavg = d3.lineRadial()
-		.angle(function(d) { return x(d.event)})
-    	.radius(function(d){ return z(d.Average_conso_moyenne_Mwh); })
-    	.curve(d3.curveCatmullRomClosed);
-    
-    
-    var sums, hoverCirclessums, labels;
-    var yTick, yAxis;
- 
-	
-    d3.csv( cite +".csv", function(d) {
-			d.Average_conso_moyenne_Mwh = +d.Average_conso_moyenne_Mwh;    
-      d.Nombre_de_site = +d.Nombre_de_site;
-      return d;
-	  
-    }, function(error, data) {
-      if (error) throw error;
-      
-      data = data.sort(function(a, b) {
-        return a.event < b.event;
-      });
-	  
-	  
-      
-      x.domain(data.map(function(d) {
-        return d.event;
-      }));
-      
-      y.domain([0, d3.max(data, function(d) {
-        return d.Nombre_de_site;
-      })]);
-      
-      var slowestTime = "24:00";
-      
-	    z.domain([0, d3.max(data, function(d) {
-        return d.Average_conso_moyenne_Mwh
-      })]);
-	  
-    
-      
-      var xAxis = center.append("g")
-      	.attr("text-anchor", "middle");
-      
-      var xTick = xAxis.selectAll("g")
-      	.data(data)
-      .enter().append("g");
-      
-      xTick.append("line")
-      	.attr("class", "x-tick")
-      	.attr("y2", radius)
-      	.attr("transform", function(d) {
-          return "rotate(" + (x(d.event) / fullCircle * 360) + ")";
-        });
-      
-      xTick.append("line")
-      	.attr("class", "x-tick-long")
-      	.attr("y1", radius)
-      	.attr("y2", radius + 30)
-      	.attr("transform", function(d) {
-          return "rotate(" + (x(d.event) / fullCircle * 360) + ")";
-        });
-      
-      yAxis = center.append("g")
-      	.attr("text-anchor", "middle");
-     	
-      addAxis(0);
-      
-      labels = xTick.append("g")
-      	.attr("class", "label");      
-      
-      labels.append("text")
-      	.attr("y", radius + radiusTextSpacing)
-      	.attr("x", function(d) {
-        	return Math.cos(x(d.event) + Math.PI / 2) * (radius + radiusTextSpacing);
-      	})
-      	.attr("y", function(d) {
-        	return Math.sin(x(d.event) + Math.PI / 2) * (radius + radiusTextSpacing);
-      	})
-      	.attr("dy", "0.35em")
-      	.text(function(d) {
-          return d.event;
-        });
-      
-      sums = center.append("g");
-      
-      sums.append("path")
-      	.datum(data)
-      	.attr("class", "sums")
-      	.attr("d", areasums)
-      	.attr("transform", "rotate(180)")
-      	.style("filter" , "url(#glow)")
-        .on("mouseover", function() {
-        	d3.select(".times").transition()
-            .style("fill-opacity", 0.05);
-      	})
-      	.on("mouseout", function() {
-        	d3.select(".times").transition()
-            .style("fill-opacity", 0.35);
-      	});
-            
-      sums.selectAll("circle")
-      	.data(data)
-      .enter().append("circle")
-      	.attr("class", "dot-run")	
-     		.attr("cy", function(d) {
-          return y(d.Nombre_de_site);
-        })
-      	.attr("r", dotRadius)
-      	.attr("transform", function(d) {
-          return "rotate(" + (x(d.event)) / fullCircle * 360 + ")";
-        })
-      	.style("filter" , "url(#glow)");
-            
-      hoverCirclessums = center.append("g");
-      
-      hoverCirclessums.selectAll("circle")
-        .data(data)
-      .enter().append("circle")
-      	.attr("class", "hover-dot")	
-     		.attr("cy", function(d) {
-          return y(d.Nombre_de_site);
-        })
-      	.attr("r", dotRadius * 3)
-      	.attr("transform", function(d) {
-          return "rotate(" + (x(d.event)) / fullCircle * 360 + ")";
-        })
-      	.on("mouseover", function(d) {
-        	var multiplier = mode == "sums" ? y(d.Nombre_de_site) : z(d.Average_conso_moyenne_Mwh);
-        	var unit = d.Nombre_de_site == 1 ? " run" : " Sites";
-        	var labelText = mode == "sums" ? d.Nombre_de_site + unit : d.Average_conso_moyenne_Mwh +" Mwh par site";
-        
-        	d3.select(this.parentNode).append("text")
-            .attr("x", function() {
-              return Math.cos(x(d.event) + Math.PI / 2) * multiplier;
-            })
-            .attr("y", function() {
-              return Math.sin(x(d.event) + Math.PI / 2) * multiplier;
-            })
-          	.attr("dy", "-1em")
-          	.attr("text-anchor", "middle")
-          	.text(labelText);
-      	})
-      	.on("mouseout", function(d) {
-        	d3.select(this.parentNode).select("text").remove();
-      	});
-      
-  
-    });
-    
-    function change() {
-        sums.select("path")
-          .transition()
-          .duration(1000)
-          .attr("d", function(d) {
-          	return mode == "avg" ? areaavg(d) : areasums(d);
-        	})
-          .style("fill", function() {
-          	return mode == "avg" ? "none" : "#B06600";
-        	});
-      
-        sums.selectAll("circle")
-          .transition()
-          .duration(1000)
-          .attr("cy", function(d) {
-            return mode == "avg" ? z(d.Average_conso_moyenne_Mwh) : y(d.Nombre_de_site);
-          })
-          .style("fill", function() {
-          	return mode == "avg" ? "#bfbd00" : "#B06600";
-        	});
-        
-        hoverCirclessums
-          .selectAll("circle")
-          .attr("cy", function(d) {
-             return mode == "avg" ? z(d.Average_conso_moyenne_Mwh) : y(d.Nombre_de_site);
-          });
-        
-        yTick.selectAll("circle")
-          .transition()
-          .duration(250)
-        	.attr("r", 0);
-        
-        yTick.selectAll("text")
-          .transition()
-          .duration(250)
-        	.attr("y", 0)
-        	.on("end", function() {
-        		yAxis.selectAll("g").remove();
-          	addAxis(250);
-        	})
-    }
-    
-    function addAxis(sums) {
-        yTick = yAxis.selectAll("g")
-          .data(function() {
-          	return mode == "sums" ? y.ticks(5).slice(1) : z.ticks(5).slice(0, -1);
-        	})
-        .enter().append("g")
-          .attr("class", "y-tick");
+    if (error) throw error;
+    RadarChart.draw("#area2", data, config);
+});
 
-        yTick.append("circle")
-          .transition()
-          .duration(sums * 3)
-          .attr("r", function(d) {
-          	return mode == "sums" ? y(d) : z(d);
-          });
-
-        yTick.append("text")
-          .transition()
-          .duration(sums * 3)
-          .attr("y", function(d) {
-          	return mode == "sums" ? -y(d) : -z(d);
-          })
-          .attr("dy", "0.35em")
-          .text(function(d) {
-          	return mode == "sums" ? d : d;
-          });
-    }
-
-					
-					});
-					
-					
-					
-       
-        
+var svg = d3.select('#area2')
+	.selectAll('svg')
+	.append('svg')
+	.attr("width", 560)
+	.attr("height", 440);
+						})
+   
     });
 }); 
-
-
-
-
+					
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -518,7 +247,7 @@ s.remove();
 
       // dimensions sankey append the svg object to the body of the page
       var svg = d3.select("#Sankeydiag").append("svg")
-          .attr("width", 580 )
+          .attr("width", 590 )
           .attr("height", 440 )
         .append("g")
           .attr("transform", 
