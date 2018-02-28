@@ -204,10 +204,9 @@ font: 15px sans-serif;
 
          })
       		
-				//**********************************************
-				.on('click',function(d){
+		.on('click',function(d){
 
-					cite= d.properties.nom;
+cite= d.properties.nom;
 d3.json("DATA/json/"+cite+".json", function(error, data) {
 var config = {
     w: 490,
@@ -226,7 +225,7 @@ var svg = d3.select('#area2')
 	.append('svg')
 	.attr("width", 560)
 	.attr("height", 440);
-						})
+	})
    
     });
 }); 
