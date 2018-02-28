@@ -1,0 +1,73 @@
+source,target,value
+Centre-Val de Loire,Conso résidentiel,5086117.621
+Centre-Val de Loire,Conso professionnel,1213698.27
+Centre-Val de Loire,Conso Agriculture,406764.5527
+Centre-Val de Loire,Conso industrie,3344681.855
+Centre-Val de Loire,Conso tertiaire,3613812.568
+Centre-Val de Loire,Conso secteur non affecté,12793.80498
+Occitanie,Conso résidentiel,11074995.51
+Occitanie,Conso professionnel,3108980.119
+Occitanie,Conso Agriculture,276571.6355
+Occitanie,Conso industrie,4718187.514
+Occitanie,Conso tertiaire,8930725.733
+Occitanie,Conso secteur non affecté,9013.556227
+Normandie,Conso résidentiel,7043768.898
+Normandie,Conso professionnel,1821963.263
+Normandie,Conso Agriculture,176495.9067
+Normandie,Conso industrie,5645131.3
+Normandie,Conso tertiaire,5217784.349
+Normandie,Conso secteur non affecté,308454.0378
+Auvergne-Rhône-Alpes,Conso résidentiel,11434047.91
+Auvergne-Rhône-Alpes,Conso professionnel,3547384.928
+Auvergne-Rhône-Alpes,Conso Agriculture,228240.9814
+Auvergne-Rhône-Alpes,Conso industrie,11133549.15
+Auvergne-Rhône-Alpes,Conso tertiaire,12324594.78
+Auvergne-Rhône-Alpes,Conso secteur non affecté,20932.68113
+Bretagne,Conso résidentiel,4827266.538
+Bretagne,Conso professionnel,1448972.977
+Bretagne,Conso Agriculture,762443.5629
+Bretagne,Conso industrie,4868748.109
+Bretagne,Conso tertiaire,4965998.339
+Bretagne,Conso secteur non affecté,35030.68798
+Grand-Est,Conso résidentiel,5423318.129
+Grand-Est,Conso professionnel,1444991.08
+Grand-Est,Conso Agriculture,168898.4916
+Grand-Est,Conso industrie,6563246.831
+Grand-Est,Conso tertiaire,5326092.29
+Grand-Est,Conso secteur non affecté,47180.38319
+Île-de-France,Conso résidentiel,82354116.13
+Île-de-France,Conso professionnel,30995865.18
+Île-de-France,Conso Agriculture,104186.2703
+Île-de-France,Conso industrie,15902951.12
+Île-de-France,Conso tertiaire,109884189
+Île-de-France,Conso secteur non affecté,679016.5254
+Hauts-de-France,Conso résidentiel,7788057.478
+Hauts-de-France,Conso professionnel,2075408.693
+Hauts-de-France,Conso Agriculture,263443.7128
+Hauts-de-France,Conso industrie,7440200.141
+Hauts-de-France,Conso tertiaire,7331718.355
+Hauts-de-France,Conso secteur non affecté,106955.898
+Pays de la Loire,Conso résidentiel,6575518.049
+Pays de la Loire,Conso professionnel,1825542.623
+Pays de la Loire,Conso Agriculture,434300.031
+Pays de la Loire,Conso industrie,6295353.224
+Pays de la Loire,Conso tertiaire,5855012.94
+Pays de la Loire,Conso secteur non affecté,6062.207283
+Bourgogne-Franche-Comté,Conso résidentiel,5843510.117
+Bourgogne-Franche-Comté,Conso professionnel,1613942.375
+Bourgogne-Franche-Comté,Conso Agriculture,130184.103
+Bourgogne-Franche-Comté,Conso industrie,5047596.175
+Bourgogne-Franche-Comté,Conso tertiaire,3996933.18
+Bourgogne-Franche-Comté,Conso secteur non affecté,16394.12801
+Nouvelle Aquitaine,Conso résidentiel,7984980.642
+Nouvelle Aquitaine,Conso professionnel,2009896.792
+Nouvelle Aquitaine,Conso Agriculture,513768.6142
+Nouvelle Aquitaine,Conso industrie,4685374.521
+Nouvelle Aquitaine,Conso tertiaire,7647461.716
+Nouvelle Aquitaine,Conso secteur non affecté,10629.93861
+Provence-Alpes-Côte d'Azur,Conso résidentiel,18932600.97
+Provence-Alpes-Côte d'Azur,Conso professionnel,5212877.65
+Provence-Alpes-Côte d'Azur,Conso Agriculture,181340.203
+Provence-Alpes-Côte d'Azur,Conso industrie,4210232.603
+Provence-Alpes-Côte d'Azur,Conso tertiaire,14349119.95
+Provence-Alpes-Côte d'Azur,Conso secteur non affecté,62671.75234
