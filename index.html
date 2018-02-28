@@ -41,6 +41,7 @@
 	div.tooltip {
         color: #222;
         background-color: #fff;
+	padding: 9px 14px 6px 14px;
         text-shadow: #f5f5f5 0 1px 0;
         border-radius: 2px;
         opacity: 0.9;
@@ -182,7 +183,7 @@ font: 15px sans-serif;
                     });
                     tooltip.classed('hidden', false)
                         	 .attr('style', 'left:' + (mouse[0] + 15) + 
-                                 'px; top:' + (mouse[1] - 15 ) + "px; border: 2px solid ")
+                                 'px; top:' + (mouse[1] + 40 ) + "px; border: 2px solid ")
                        	   .html("<p><strong>"+ d.properties.nom + " : "  +"</strong></p><p>"+ d.properties.value);
                 })
       		.on('mouseout', function() {
