@@ -32,7 +32,7 @@ Sur le radar chart : l'utilisation de .toPrecision() peut permettre d’afficher
 
 Replacer le footer en bas de la page
 
-  Fixed
+    Fixed
 
 Changement dynamique de l'échelle du radar chart 
 
