@@ -30,7 +30,9 @@ Sur le radar chart : la souris et le tooltip sont en conflit : peut-être mettre
 
 Sur le radar chart : l'utilisation de .toPrecision() peut permettre d’afficher moins de décimales et ainsi rendre plus lisible la valeur de la conso d’électricité.
 
-Replacer le footer en bas de la page [Corrrigé]
+Replacer le footer en bas de la page
+
+  Fixed
 
 Changement dynamique de l'échelle du radar chart 
 
