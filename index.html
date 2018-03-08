@@ -189,7 +189,7 @@ cite= d.properties.nom;
 d3.json("DATA/json/"+cite+".json", function(error, data) {
 var sawtech = 0;
 //---------------------------------
-    d3.csv("sca.csv", function(d) {
+    d3.csv("DATA/sca.csv", function(d) {
 	d.tsim = + d.tsim;
 	
 for (var i = 0; i < d.length; i++) {
