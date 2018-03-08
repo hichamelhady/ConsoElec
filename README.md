@@ -1,5 +1,4 @@
 # ConsoElec  - An interactive way to understand the electricity consomation
-![](https://static0.quelleenergie.net/images/faq/compteur-electrique-187.jpg?1424451395)
 
 Projet réalisé par : 
 - EL BOUJDAINI Idriss 
