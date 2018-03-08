@@ -1,5 +1,5 @@
 var RadarChart = {
-  draw: function(id, d, options ,max){
+  draw: function(id, d, options, max){
     var cfg = {
      radius: 5,
      w: 500,
@@ -11,8 +11,8 @@ var RadarChart = {
      radians: 2 * Math.PI,
      opacityArea: 0.5,
      ToRight: 5,
-     TranslateX: 80,
-     TranslateY: 30,
+     TranslateX: 60,
+     TranslateY: 35,
      ExtraWidthX: 100,
      ExtraWidthY: 100,
      color: d3.scaleOrdinal().range(["#d3bc68", "#CA0D59"])
@@ -96,15 +96,16 @@ var RadarChart = {
       .style("stroke-width", "1px");
 
     axis.append("text")
-      .attr("class", "legend")
-      .text(function(d){return d})
-      .style("font-family", "sans-serif")
-      .style("font-size", "11px")
-      .attr("text-anchor", "middle")
-      .attr("dy", "1.5em")
-      .attr("transform", function(d, i){return "translate(0, -10)"})
-      .attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
-      .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
+      	.attr("class", "legend")
+      	.text(function(d){return d})
+      	.style("font-family", "sans-serif")
+      	.style("font-size", "20px")
+	.style("font-weight", "700")
+      	.attr("text-anchor", "middle")
+      	.attr("dy", "1.5em")
+      	.attr("transform", function(d, i){return "translate(0, -10)"})
+      	.attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
+      	.attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
 
  
     d.forEach(function(y, x){
@@ -180,7 +181,7 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
               .style("left", d3.event.pageX - 40 + "px")
               .style("top", d3.event.pageY - 80 + "px")
               .style("display", "inline-block")
-      				.html((d.area) + "<br><span>" + (d.value) + "</span>");
+      				.html("<p><strong>"+(d.area)+ "</p></strong>"+ "<br>" + (d.value) + "MwH");
             })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
 
