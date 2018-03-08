@@ -243,7 +243,7 @@ var svg = d3.select('#area2')
       // format variables
       var formatNumber = d3.format(",.0f"),    // zero decimal places
           format = function(d) { return  formatNumber(d) + "MWh"; },
-          color = d3.scaleOrdinal(d3.schemeCategory10);
+          color = d3.scaleOrdinal(d3.schemeCategory20b);
 
       // dimensions sankey append the svg object to the body of the page
       var svg = d3.select("#Sankeydiag").append("svg")
