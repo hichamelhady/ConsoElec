@@ -14,6 +14,8 @@ Differences entre la conso majoritaire sur le radar chart (industrie) et sur l'a
 
 Le code couleur des régions sur la carte devrait correspondre avec les couleurs sur le graphe de droite. (exemple : l’Île de France est bleue sur la carte et violet sur le graphe à droite. 
 
+    Fixed (île de france), code couleur en cours
+
 Pour le diagramme chart : il manque des transitions
 
 Problème dans le dessin des liens : la largeur n’est pas toujours constante
