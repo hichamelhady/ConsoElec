@@ -5,7 +5,7 @@ Projet réalisé par :
 - EL-HADY Hicham 
 - LIU Kun  
 
-## Data visualisation - source de données : ENEDIS
+## Data visualisation - source of data: ENEDIS
 
 Enedis is a public service company, which manage the eclectricity distribution net. It develope, implimente and modernnise the electricity and provide the realted dates.
 
