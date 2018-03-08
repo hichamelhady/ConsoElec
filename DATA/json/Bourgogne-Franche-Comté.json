@@ -3,9 +3,9 @@
       {"area": "Residentiel ", "value": 5.427483912},
       {"area": "Professionnel", "value": 8.647527291},
       {"area": "Agriculture ", "value": 118.998266},
-      {"area": "industrie", "value": 804.6542603},
+      {"area": "Industrie", "value": 804.6542603},
       {"area": "Tertiaire ", "value":235.2105679},
-      {"area": "affecte ", "value": 199.9283904}
+      {"area": "Autres", "value": 199.9283904}
   	]
 
   ]
