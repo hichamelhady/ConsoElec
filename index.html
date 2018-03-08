@@ -183,25 +183,51 @@
 		.on('click',function(d){
 
 cite= d.properties.nom;
-d3.json("DATA/json/"+cite+".json", function(error, data) {
+					
+						
+					
+d3.json(cite+".json", function(error, data) {
+var sawtech = 0;
+//---------------------------------
+    d3.csv("sca.csv", function(d) {
+	d.tsim = + d.tsim;
+	
+for (var i = 0; i < d.length; i++) {
+ 					
+          if(d[i].cite == cite) {
+		
+		  sawtech = d[i].tsim;
+
+
+
 var config = {
-    w: 490,
-    h: 340,
-    maxValue:900,
-    levels: 4,	
+    w: 500,
+    h: 500,
+    maxValue: sawtech,
+    levels: 5,	
     ExtraWidthX: 100
 }
 
+
+	console.log(cite);
     if (error) throw error;
-    RadarChart.draw("#area2", data, config);
+    RadarChart.draw("#area2", data, config ,sawtech);
+	
+	
+	
+	    	}
+		}
+
+});
+
 });
 
 var svg = d3.select('#area2')
 	.selectAll('svg')
 	.append('svg')
-	.attr("width", 560)
-	.attr("height", 440);
-	})
+	.attr("width", 500)
+	.attr("height", 500);
+						})
    
     });
 }); 
