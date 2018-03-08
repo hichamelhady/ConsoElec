@@ -125,7 +125,6 @@
     	height = 420
 
     var cite ="";
-		var color2 = d3.scaleOrdinal(d3.schemeCategory20b);
         
     var tooltip = d3.select('body').append('div')
             .attr('class', 'hidden tooltip');
@@ -141,7 +140,7 @@
 				 
 	
     d3.csv("DATA/data_t.csv", function(data) {
-    color2.domain([0,2000]);
+    color.domain([0,2000]);
    
     d3.json("DATA/json/regions.geojson", function(json) {
   
@@ -163,7 +162,7 @@
          .style("stroke-width", "2")
          .style("fill", function(d) {
              var value = d.properties.value;
-             return color2(value);});
+             return color(value);});
       
   
       svg2.selectAll("path")
