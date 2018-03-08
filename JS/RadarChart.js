@@ -178,8 +178,8 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
       .on('mouseover', function (d){
         console.log(d.area)
             tooltip
-              .style("left", d3.event.pageX - 40 + "px")
-              .style("top", d3.event.pageY - 80 + "px")
+              .style("left", d3.event.pageX + 140 + "px")
+              .style("top", d3.event.pageY + 180 + "px")
               .style("display", "inline-block")
       				.html("<p><strong>"+(d.area)+ "</p></strong>"+ "<br>" + (d.value) + "MWh");
             })
