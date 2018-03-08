@@ -181,7 +181,7 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
               .style("left", d3.event.pageX - 40 + "px")
               .style("top", d3.event.pageY - 80 + "px")
               .style("display", "inline-block")
-      				.html("<p><strong>"+(d.area)+ "</p></strong>"+ "<br>" + (d.value) + "MwH");
+      				.html("<p><strong>"+(d.area)+ "</p></strong>"+ "<br>" + (d.value) + "MWh");
             })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
 
