@@ -24,7 +24,9 @@ Pas de légendes/titre sur les graphiques
 
 ## Recommandation d’améliorations [Cf google doc ... (lien prof à mettre)]
 
-Il faudrait une échelle sur le radar chart (il y a des chiffres mais on ne sait pas si c’est des GWh par an, ou des piles AAA par seconde) Ce sont de MWh, on peut le voir avec le tooltip. Ok merci, mais il vaut mieux quand même l’afficher.Et il faut écrire “MWh” et non “MwH”. De même ajouter l’unité dans le tooltip de la carte de France, lorsqu’on clique sur une région. 
+Il faudrait une échelle sur le radar chart (il y a des chiffres mais on ne sait pas si c’est des GWh par an, ou des piles AAA par seconde) Ce sont de MWh, on peut le voir avec le tooltip. Ok merci, mais il vaut mieux quand même l’afficher.Et il faut écrire “MWh” et non “MwH”. De même ajouter l’unité dans le tooltip de la carte de France, lorsqu’on clique sur une région.
+
+    Fixed
 
 Sur le radar chart : la souris et le tooltip sont en conflit : peut-être mettre un offset dans la position du tooltip
 
@@ -39,5 +41,7 @@ Changement dynamique de l'échelle du radar chart
 Site Electricity Map : Permet de visualiser la consommation électrique des différents pays dans le monde, en “quasi” instantané.
 
 Affecte -> “Autres”, et harmoniser les légendes (majuscules en première lettre, etc…)
+       
+    Fixed
 
 Le dernier graphe devrait évoluer en fonction de la région sélectionnée
