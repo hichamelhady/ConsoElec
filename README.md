@@ -21,7 +21,8 @@ Our work aim to help update the data with the new intelligent visualisation inte
 
 - Possibly a graph of the temporal evolution of the energy consumption for each region (at the click of the mouse)
 
-## Data visualisation - Goal of
+## Data visualisation - Results of the project ConsoElec
+
 
 
 
