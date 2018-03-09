@@ -2,7 +2,7 @@
 
 Préciser l'unité sur le tooltip de la carte
 
-    Fixed : when you move the mouse over the map, you will see the unit is the amount of people living the the selected region
+    Fixed : when you move the mouse over the map, you will see the unit is the amount of people living the selected region
 
 
 Redimensionner le radarchart 
@@ -22,7 +22,7 @@ Il faudrait une échelle sur le radar chart (il y a des chiffres mais on ne sait
 
 Sur le radar chart : la souris et le tooltip sont en conflit : peut-être mettre un offset dans la position du tooltip
 
-    We didn't get the point ! But we have changed the position oof the tooltip in order to not to hide the text behind it 
+    We didn't get the point! But we changed the position of the tooltip in order to not to hide the text behind it 
 
 Replacer le footer en bas de la page
 
@@ -44,4 +44,4 @@ Affecte -> “Autres”, et harmoniser les légendes (majuscules en première le
 
 Le dernier graphe devrait évoluer en fonction de la région sélectionnée
             
-    Not fixed
+    Not fixed : 
