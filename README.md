@@ -9,7 +9,7 @@ Project done by :
 
 Enedis is a public service company, which manage the electricity distribution network to more than 35 million client. It developes, implementes and modernise the electricity. It particularly works on data from electricity meters. With the energy transiton and the talks about smartcities and modernisation, ENEDIS created a website, in whcih they let free acces to their data. 
 
-Here is the link to it #link
+Here is the link to it #link https://data.enedis.fr/page/accueil/?flg=fr
 
 The data is available is consisting of the eletricity consumption sorted by total number of people using it, regions and activity sectors. But also the sum of electricity production for many years sorted by the way of producuction (solar, hydraulic, Cogeneration or others)  
 
