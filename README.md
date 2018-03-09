@@ -81,6 +81,10 @@ This bart chart shows the evolution of electricty production (MWh) in France fro
 
 It is sorted by years and the way in which the electrical energy was produced.
 
+The grouped version, shown below,  allows the user to compare the amount of energy produced by different methods (Cogeneration, Hydraulic, Solar..)
+
+The Stacked version is also important because it gives the sum energy produced every year and also the part of every way of production.
+
 <figure>
   <p align="center"> <img src="/Img_project_final/grouped.JPG" width=100%/>
 </figure>
