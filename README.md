@@ -7,15 +7,15 @@ Project done by :
 
 ## Table of contents :
 
-<a Source of data: ENEDIS open data</a>
+      Source of data: ENEDIS open data
 
-<a Data visualisation - Goal of the project</a>
+      Data visualisation - Goal of the project
 
-<a Data visualisation - Results of the project ConsoElec :</a>
+      Data visualisation - Results of the project ConsoElec
 
-<a Link to Video </a></li> 
+      Link to Video 
 
-<a Resources and credits :</a>
+      Resources and credits 
 
 
 ## Source of data: ENEDIS open data
