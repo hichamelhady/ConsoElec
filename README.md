@@ -45,6 +45,10 @@ even if residential field consume the most of electricity, its average consumpti
 
 ![Sheet5](/Img_project_final/sankey.JPG)
 
+The Sankey chart, presents Electricity general consumption in France.
+It contains two dynamic ribs. The left one, allows the user to select and move a specific region, while the right one, allows to select and move the field (residential, industrial….) 
+
+
 # Stacked/Grouped Bar chart :
 
 ![Sheet6](/Img_project_final/grouped.JPG)
