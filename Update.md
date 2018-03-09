@@ -1,4 +1,4 @@
-## Suggestiosn of March 02, 2018 
+## Suggestions of March 02, 2018 
 
 Préciser l'unité sur le tooltip de la carte
 
