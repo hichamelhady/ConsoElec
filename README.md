@@ -73,6 +73,18 @@ Of course you can select a specific target ( e.g. Ile de France -> Conso tertiai
 
 [Here it is !! Thanks you for watching and feel free to ask us](https://www.youtube.com/watch?v=3WGgQxnGbuw&feature=youtu.be)
 
+  </p>
+<a href="https://www.youtube.com/watch?v=3WGgQxnGbuw&feature=youtu.be">
+<figure>
+  <p align="center"> <img src="/Img_project_final/youtube.JPG" width=80% />
+</figure>
+</a>
+
+<p align="center"> <i>Youtube </i> </p>
+    <p align=justify>
+</p>
+
+
 ## Resources and credits :
 
 * [Interactive Data Visualization course (ECL MOS 5.5) - Romain Vuillemot](https://github.com/LyonDataViz/MOS5.5-Dataviz)
