@@ -36,7 +36,10 @@ Our website looks like this :
 # Radar chart :
 
 ![Sheet4](/Img_project_final/radarchart.JPG)
-- The Radar chart, as it’s shown above, present the electricity consumption per field.
+-The Radar chart, as it’s shown above, present the electricity consumption per field. We manage to change the scale of this chart in a way that the max of the radar chart change with Region changing. 
+# Interpretation:
+even if residential field consume the most of electricity, its average consumption lower than the industrial average, and which is normal, due to the fact, that industries have many machines, and electrical installations .
+
 # Sankey diagram:
 
 ![Sheet5](/Img_project_final/sankey.JPG)
