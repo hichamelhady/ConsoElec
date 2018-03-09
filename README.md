@@ -8,11 +8,11 @@ Project done by :
 ## Table of contents :
 
 <ol id="navigation"> 
-<li><a Source of data: ENEDIS open data</a></li> 
-<li><a Data visualisation - Goal of the project</a></li> 
-<li><a Data visualisation - Results of the project ConsoElec :</a></li> 
-<li><a Link to Video </a></li> 
-<li><a Resources and credits :</a></li> 
+<a >Source of data: ENEDIS open data</a>
+<a >Data visualisation - Goal of the project</a>
+<a >Data visualisation - Results of the project ConsoElec :</a>
+<a >Link to Video </a></li> 
+<a >Resources and credits :</a>
 
 </ol>
 
