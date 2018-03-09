@@ -77,7 +77,9 @@ Of course you can select a specific target ( e.g. Ile de France -> Conso tertiai
 
 # Stacked/Grouped Bar chart :
 
-This bart chart shows the evolution of electricty production (MWh) in france from 2011 to 2016. 
+This bart chart shows the evolution of electricty production (MWh) in France from 2011 to 2016.
+
+It is sorted by years and the way in which the electrical energy was produced.
 
 <figure>
   <p align="center"> <img src="/Img_project_final/grouped.JPG" width=100%/>
