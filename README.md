@@ -14,6 +14,8 @@ Project done by :
       Data visualisation - Results of the project ConsoElec
 
       Link to Video 
+      
+      Conclusion
 
       Resources and credits 
 
@@ -75,6 +77,8 @@ Of course you can select a specific target ( e.g. Ile de France -> Conso tertiai
 
 # Stacked/Grouped Bar chart :
 
+This bart chart shows the evolution of electricty production (MWh) in france from 2011 to 2016. 
+
 <figure>
   <p align="center"> <img src="/Img_project_final/grouped.JPG" width=100%/>
 </figure>
@@ -93,6 +97,8 @@ Of course you can select a specific target ( e.g. Ile de France -> Conso tertiai
 <p align="center"> <i>Youtube </i> </p>
     <p align=justify>
 </p>
+
+## Conclusion: 
 
 
 ## Resources and credits :
