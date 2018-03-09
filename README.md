@@ -49,14 +49,15 @@ The map shown below allows to the user the control of the radar chart because th
 It allows also the user to the get an idea of clients of Enedis in a France regions.
 
 <figure>
-  <p align="center"> <img src="/Img_project_final/cartefr.JPG" width=80% />
+  <p align="center"> <img src="/Img_project_final/cartefr.JPG" width=100% />
 </figure>
+
 # Radar chart :
 
 The Radar chart, as it’s shown below, presents the electricity consumption per field. We manage to change the scale of this chart in a way that the max of the radar chart change with Region changing. 
 
 <figure>
-  <p align="center"> <img src="/Img_project_final/radarchart.JPG" width=80% />
+  <p align="center"> <img src="/Img_project_final/radarchart.JPG" width=100% />
 </figure>
             
 Even if residential field consume the most of electricity, its average consumption lower than the industrial average, and which is normal, due to the fact, that industries have many machines, and electrical installations .
@@ -64,7 +65,7 @@ Even if residential field consume the most of electricity, its average consumpti
 # Sankey diagram:
 
 <figure>
-  <p align="center"> <img src="/Img_project_final/sankey.JPG" width=80% />
+  <p align="center"> <img src="/Img_project_final/sankey.JPG" width=100% />
 </figure>
 
 The Sankey chart, presents Electricity general consumption in France.
@@ -75,7 +76,7 @@ Of course you can select a specific target ( e.g. Ile de France -> Conso tertiai
 # Stacked/Grouped Bar chart :
 
 <figure>
-  <p align="center"> <img src="/Img_project_final/grouped.JPG" width=80% />
+  <p align="center"> <img src="/Img_project_final/grouped.JPG" width=100% />
 </figure>
 
 ## Link to Video : 
