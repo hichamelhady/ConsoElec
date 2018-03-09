@@ -29,13 +29,21 @@ Our website looks like this :
 ![Sheet1](/Img_project_final/1.JPG)
 ![Sheet2](/Img_project_final/2.JPG)
 
-__ France new map :
+# France map :
 
-__ Radar chart :
+![Sheet3](/Img_project_final/cartefr.JPG)
 
-__ Sankey diagram:
+# Radar chart :
 
-__ Stacked/Grouped Bar chart :
+![Sheet4](/Img_project_final/radarchart.JPG)
+
+# Sankey diagram:
+
+![Sheet5](/Img_project_final/sankey.JPG)
+
+# Stacked/Grouped Bar chart :
+
+![Sheet6](/Img_project_final/grouped.JPG)
 
 ## Link to Video : 
 
