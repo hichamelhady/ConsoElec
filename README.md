@@ -24,7 +24,10 @@ Our work aim to help producers of energy, the users and also public function ser
 
 ## Data visualisation - Results of the project ConsoElec
 
+Our website looks like this :
+
 ![Sheet1](/Img_project_final/1.JPG)
+![Sheet2](/Img_project_final/2.JPG)
 
 
 
