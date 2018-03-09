@@ -20,7 +20,7 @@ Our work aim to help producers of energy, the users and also public function ser
 
 - Geomapping with a visualization of demography of each region and when we choose a region, an other graph appears to presesnts the energy consumption for the selected region, sorted by sector of activity for each unit.
 
-- A grouped/ stacked bar chart visualising the temporal evolution of the energy production in france.
+- A grouped/stacked bar chart visualising the temporal evolution of the energy production in france.
 
 ## Data visualisation - Results of the project ConsoElec
 
@@ -29,7 +29,13 @@ Our website looks like this :
 ![Sheet1](/Img_project_final/1.JPG)
 ![Sheet2](/Img_project_final/2.JPG)
 
+__ France new map :
 
+__ Radar chart :
+
+__ Sankey diagram:
+
+__ Stacked/Grouped Bar chart :
 
 ## Link to Video : 
 
