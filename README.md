@@ -42,6 +42,8 @@ Our website looks like this :
 
 ![Sheet3](/Img_project_final/cartefr.JPG)
 
+The map is a tool that allows the user the control the radar chart (both are synchronized), and at the same time, allows the user the get an idea of population of a region.
+
 # Radar chart :
 
 ![Sheet4](/Img_project_final/radarchart.JPG)
