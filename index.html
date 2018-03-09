@@ -420,7 +420,7 @@ var yBar = d3.scaleLinear()
 var yStack = d3.scaleLinear()
   .range([height, 0]);
 
-var color = d3.scaleOrdinal()
+var color3 = d3.scaleOrdinal()
 	.domain(["Photovoltaïque","Eolien","Cogénération","Hydraulique", "Autres"]) 	// Defined here, doesn't work into csv loop...
 	.range(["blue", "orange", "green", "purple", "brown"]);
 
@@ -498,7 +498,7 @@ d3.csv("DATA/dataprod.csv", function(data) {
 		.selectAll("g")
 		.data(d3.stack().keys(companiesNames)(final_data))
 		.enter().append("g")
-		.attr("fill", function(d) { return color(d.key); });
+		.attr("fill", function(d) { return color3(d.key); });
 	  
 	var rect = group.selectAll("rect")
 		.data(function(d) {return d; })
@@ -576,7 +576,7 @@ d3.csv("DATA/dataprod.csv", function(data) {
 
 	  
 	  var legend = svgp.selectAll(".legend")
-		  .data(color.domain().reverse())
+		  .data(color3.domain().reverse())
 		  .enter()
 		  .append("g")
 		  .attr("class", "legend")
@@ -587,7 +587,7 @@ d3.csv("DATA/dataprod.csv", function(data) {
 		  .attr("x", width - 16)
 		  .attr("width", 18)
 		  .attr("height", 18)
-		  .style("fill", function(d) { return color(d); });
+		  .style("fill", function(d) { return color3(d); });
 
 	  legend.append("text")
 		  .attr("x", width - -108)
