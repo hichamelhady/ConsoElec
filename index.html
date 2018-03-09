@@ -109,7 +109,14 @@
     
   </div>
 	<HR size=2 align=center width="100%">
- <div>
+ 
+<div>
+      	 <div id="mapzone" style="background-color: snow;  display: inline-block;border: solid black 2px;"></div>
+      	 <div id="area2" style="background-color: snow;  display: inline-block;border: solid black 2px;"></div>
+	 <div id="Sankeydiag" style="background-color: snow; display: inline-block; border: solid black 2px;"></div>
+
+</div>
+<div>
   	<form>
  		 <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
 		  <label><input type="radio" name="mode" value="grouped"> Grouped</label>
@@ -117,14 +124,7 @@
  	 <div id="diagprod" style="background-color: snow;  display: inline-block;border: solid black 2px;">
  	 </div>
 
-</div>
-<div>
-      	 <div id="mapzone" style="background-color: snow;  display: inline-block;border: solid black 2px;"></div>
-      	 <div id="area2" style="background-color: snow;  display: inline-block;border: solid black 2px;"></div>
-	 <div id="Sankeydiag" style="background-color: snow; display: inline-block; border: solid black 2px;"></div>
-
-</div>
-    
+</div>   
     
     <script>
       // set the dimensions and margins of the graph
@@ -439,7 +439,7 @@ var svgp = d3.select("#diagprod").append("svg")
 // Group for all plots
 var g = svgp.append("g")
 	.attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");	
-  
+
 d3.csv("DATA/dataprod.csv", function(data) {
 	
 	//**************************************************//
