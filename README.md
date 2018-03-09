@@ -34,3 +34,11 @@ Our website looks like this :
 ## Link to Video : 
 
 [Here it is !! Thanks you for watching and feel free to ask us](https://www.youtube.com/watch?v=3WGgQxnGbuw&feature=youtu.be)
+
+## Resources and credits :
+
+* [Interactive Data Visualization course (ECL MOS 5.5) - Romain Vuillemot](https://github.com/LyonDataViz/MOS5.5-Dataviz)
+
+* [Stacked / grouped bar chart inspired from Mike Bostock’s Block 3943967](http://bl.ocks.org/mbostock/3943967)
+
+* [ENEDIS Open DATA webesite](https://data.enedis.fr/page/accueil/?flg=fr)
