@@ -80,7 +80,10 @@
   shape-rendering: crispEdges;
 }
 
- 
+ #inner {
+  display: table;
+  margin: 0 auto;
+}
 
   
 	  
@@ -131,7 +134,8 @@ Visualisation des données de la production annuelle d'électricité en France (
       </b>
     	</p>
     </div>
-<div>
+<div  id="outer" style="width:100%">
+  <div id="inner">
   	<form>
  		 <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
 		  <label><input type="radio" name="mode" value="grouped"> Grouped</label>
