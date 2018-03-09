@@ -6,9 +6,15 @@ Couleurs carte != couleurs graph de droite
 
 Préciser l'unité sur le tooltip de la carte
 
+            Fixed
+
+
 Redimensionner le radarchart 
 
 Differences entre la conso majoritaire sur le radar chart (industrie) et sur l'autre (tertiaire) -> ??? + ile de france non cliquable sur la carte
+    
+        Fixed
+
 
 ## Points négatifs
 
@@ -23,6 +29,8 @@ Problème dans le dessin des liens : la largeur n’est pas toujours constante
 Le réajustement des palettes les superpose
 
 Pas de légendes/titre sur les graphiques
+  
+    Fixed
 
 ## Recommandation d’améliorations [Cf google doc ... (lien prof à mettre)]
 
@@ -47,3 +55,7 @@ Affecte -> “Autres”, et harmoniser les légendes (majuscules en première le
     Fixed
 
 Le dernier graphe devrait évoluer en fonction de la région sélectionnée
+
+données de production rajoutées
+
+        Fixed
