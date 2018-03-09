@@ -2,7 +2,8 @@
 
 Préciser l'unité sur le tooltip de la carte
 
-    Fixed : when you move the mouse over the map, you will see the unit is the amount of people living the selected region
+    Fixed : When you move the mouse over the map, the unit is shown. 
+    It is the amount of people living the selected region
 
 
 Redimensionner le radarchart 
@@ -26,11 +27,11 @@ Sur le radar chart : la souris et le tooltip sont en conflit : peut-être mettre
 
 Replacer le footer en bas de la page
 
-    Fixed : the footer is placed at the bottom of the page.
+    Fixed : The footer is placed at the bottom of the page.
 
 Changement dynamique de l'échelle du radar chart
 
-    Fixed : we can now read on the radar chart the values
+    Fixed : We can now read on the radar chart the values
 
 Site Electricity Map : Permet de visualiser la consommation électrique des différents pays dans le monde, en “quasi” instantané.
 
