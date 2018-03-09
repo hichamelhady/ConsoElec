@@ -1,6 +1,6 @@
 # ConsoElec  - An interactive way to understand the electricity consomation
 
-Projet dobe by : 
+Project done by : 
 - EL BOUJDAINI Idriss 
 - EL-HADY Hicham 
 - LIU Kun  
