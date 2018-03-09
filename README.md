@@ -110,7 +110,7 @@ The Stacked version is also important because it gives the sum energy produced e
 
 [Please go to Update.MD !](https://github.com/hichamelhady/ConsoElec/blob/master/Update.md)
 
-However, there are still some improvement that we can make to increase the insatiability and functionality of our project. At first, we can add the alarming consummation level for each sector and in each region. In this case, the companies will receive the notification when the electricity supply might be not enough. Besides, the data is too heavy and we need work on the data from different years, so that the comparison between the years will be presented.
+However, there are still some improvement that we can make to increase the insatiability and functionality of our project. At first, we can add the alarming consummation level for each sector and in each region. In this case, the companies will receive the notification when the electricity supply might be not enough. Besides, we can also add a pie chart of produced electricity sorted by ways of production and synchronised with the map. When you click on a region you will have not only the radar chart of consumption and sectors but also a pie chart of electric energy produced sorted by ways. Unfortunately the data is too heavy ! So we are now limited to the global stacked / grouped bar chart where a a comparison between the years were presented.
 
 ## Conclusion: 
 
