@@ -8,8 +8,8 @@ Project done by :
 ## Table of contents :
 
 <ol id="navigation"> 
-<li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md##Source of data: ENEDIS open data-" t>Source of data: ENEDIS open data</a></li> 
-<li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md##Data visualisation - Goal of the project-" t>Data visualisation - Goal of the project</a></li> 
+<li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md##Source-of-data:-ENEDIS-open-data-">Source of data: ENEDIS open data</a></li> 
+<li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md##Data-visualisation-Goal-of-the-project-">Data visualisation - Goal of the project</a></li> 
   <li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md##Data visualisation - Results of the project ConsoElec
  :-" t>Data visualisation - Results of the project ConsoElec :</a></li> 
 <li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md##Link to Video -" t>Link to Video </a></li> 
