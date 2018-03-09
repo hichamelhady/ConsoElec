@@ -613,7 +613,12 @@ d3.csv("DATA/dataprod.csv", function(data) {
 		  .attr("dy", ".35em")
 		  .style("text-anchor", "end")
 		  .text(function(d) {return d; });
-
+      svg2.append("text")
+         .attr("x", (width/15))             
+        .attr("y", 0 + 43*(margin.top))
+        .style("font-size", "18px") 
+        .style("text-decoration", "underline")  
+        .text("La nouvellle carte de France ! Choisissez une région :) ");
 </script>
 
 
