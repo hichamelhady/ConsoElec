@@ -16,15 +16,16 @@
 
 * Il faudrait une échelle sur le radar chart (il y a des chiffres mais on ne sait pas si c’est des GWh par an, ou des piles AAA par seconde) Ce sont de MWh, on peut le voir avec le tooltip. Ok merci, mais il vaut mieux quand même l’afficher.Et il faut écrire “MWh” et non “MwH”. De même ajouter l’unité dans le tooltip de la carte de France, lorsqu’on clique sur une région.
 
-    Fixed : MWh instead of MwH
+    Fixed : MWh instead of MwH (changed MwH by MWh)
 
 * Sur le radar chart : la souris et le tooltip sont en conflit : peut-être mettre un offset dans la position du tooltip
 
-    We didn't get the point! But we changed the position of the tooltip in order to not to hide the text behind it 
+    We didn't get the point! But we changed the position of the tooltip in order to not to hide the text behind it ! In Radarchart.md we changed the localisation of tooltip.
 
 * Replacer le footer en bas de la page
 
-    Fixed : The footer is placed at the bottom of the page.
+    Fixed : The footer is placed at the bottom of the page. at the section footer we added bottom
+    How : <div style="background-color :wheat; position :relative; bottom:0; width:100%;" >
 
 * Changement dynamique de l'échelle du radar chart
 
@@ -38,7 +39,7 @@
 
 * Affecte -> “Autres”, et harmoniser les légendes (majuscules en première lettre, etc…)
        
-    Fixed : We can know see Autres instead of "affecte" 
+    Fixed : We can know see Autres instead of "affecte" ! We changed the attributes in Dataset.
 
 * Le dernier graphe devrait évoluer en fonction de la région sélectionnée
             
