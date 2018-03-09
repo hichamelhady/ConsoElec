@@ -12,11 +12,11 @@ Project done by :
       Data visualisation - Goal of the project
 
       Data visualisation - Results of the project ConsoElec
-
-      Link to Video 
       
       Improvements (Please go to Update.MD)
       
+      Link to Video 
+
       Conclusion
 
       Resources and credits 
@@ -91,6 +91,12 @@ The Stacked version is also important because it gives the sum energy produced e
   <p align="center"> <img src="/Img_project_final/grouped.JPG" width=100%/>
 </figure>
 
+## Improvements: 
+
+[Please go to Update.MD !](https://github.com/hichamelhady/ConsoElec/blob/master/Update.md)
+
+However, there are still some improvement that we can make to increase the insatiability and functionality of our project. At first, we can add the alarming consummation level for each sector and in each region. In this case, the companies will receive the notification when the electricity supply might be not enough. Besides, we can also add a pie chart of produced electricity sorted by ways of production and synchronised with the map. When you click on a region you will have not only the radar chart of consumption and sectors but also a pie chart of electric energy produced sorted by ways. Unfortunately the data is too heavy ! So we are now limited to the global stacked / grouped bar chart where a a comparison between the years were presented.
+
 ## Link to Video : 
 
 [Here it is !! Thanks you for watching and feel free to ask us](https://www.youtube.com/watch?v=3WGgQxnGbuw&feature=youtu.be)
@@ -105,12 +111,6 @@ The Stacked version is also important because it gives the sum energy produced e
 <p align="center"> <i>Youtube </i> </p>
     <p align=justify>
 </p>
-
-## Improvements: 
-
-[Please go to Update.MD !](https://github.com/hichamelhady/ConsoElec/blob/master/Update.md)
-
-However, there are still some improvement that we can make to increase the insatiability and functionality of our project. At first, we can add the alarming consummation level for each sector and in each region. In this case, the companies will receive the notification when the electricity supply might be not enough. Besides, we can also add a pie chart of produced electricity sorted by ways of production and synchronised with the map. When you click on a region you will have not only the radar chart of consumption and sectors but also a pie chart of electric energy produced sorted by ways. Unfortunately the data is too heavy ! So we are now limited to the global stacked / grouped bar chart where a a comparison between the years were presented.
 
 ## Conclusion: 
 
