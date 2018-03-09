@@ -47,6 +47,7 @@ even if residential field consume the most of electricity, its average consumpti
 
 The Sankey chart, presents Electricity general consumption in France.
 It contains two dynamic ribs. The left one, allows the user to select and move a specific region, while the right one, allows to select and move the field (residential, industrial….) 
+Of course you can select a specific target ( e.g. Ile de France -> Conso tertiaire) and just put the mouse pointer over it , and get some details, like the annual electricity consumption of this target .
 
 
 # Stacked/Grouped Bar chart :
