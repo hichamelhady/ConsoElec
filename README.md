@@ -110,8 +110,17 @@ The Stacked version is also important because it gives the sum energy produced e
 
 [Please go to Update.MD !](https://github.com/hichamelhady/ConsoElec/blob/master/Update.md)
 
+However, there are still some improvement that we can make to increase the insatiability and functionality of our project. At first, we can add the alarming consummation level for each sector and in each region. In this case, the companies will receive the notification when the electricity supply might be not enough. Besides, the data is too heavy and we need work on the data from different years, so that the comparison between the years will be presented.
+
 ## Conclusion: 
 
+Overall, our ConsoElec project can gave the public, the electricity companies and the client companies a direct view for the data.
+
+With these interactive graphics, the public can understand the electricity distribution and level of consummation in their region. they can also find how the electricity was distributed and organized in an easy way. 
+
+For the electricity companies, they will be able to find the consummation changes and the electricity distributions in different regions and in different sectors. besides, these indicator and visualizations can gave them a direct and first-hand feedback for their work. They can make the necessary changes and controls during the high-demanded season in order stabilize the electricity supply. The electricity company can also use the different graphics to change the strategy of the electricity supply , to improve the electricity supply network As well as to decides the electricity price and possible offer. 
+
+To the client companies, especially for the search engine companies like google, Facebook, Yahoo, who has the huge need of electricity to take care of the server and cool down the machine, they need to have a good analyze of the electricity distribution and organization while choosing their local server and set up the subsidiary. 
 
 ## Resources and credits :
 
