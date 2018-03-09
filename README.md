@@ -7,9 +7,11 @@ Project done by :
 
 ## Source of data: ENEDIS open data
 
-Enedis is a public service company, which manage the eclectricity distribution . It developes, implementes and modernnise the electricity and provide the realted dates.
+Enedis is a public service company, which manage the electricity distribution network to more than 35 million client. It developes, implementes and modernise the electricity. It particularly works on data from electricity meters. With the energy transiton and the talks about smartcities and modernisation, ENEDIS created a website, in whcih they let free acces to their data. 
 
-The data are available for us to use on their website, consisting of the average yearly eletricity consumption that are sorted by total number, regions and activity sectors. But also the sum of electricity production for many years sorted by the way of producuction (solar, hydraulic, Cogeneration or others)  
+Here is the link to it #link
+
+The data is available is consisting of the eletricity consumption sorted by total number of people using it, regions and activity sectors. But also the sum of electricity production for many years sorted by the way of producuction (solar, hydraulic, Cogeneration or others)  
 
 ## Data visualisation - Goal of the project
 Our work aim to help producers of energy, the users and also public function services to control their consumption of electricla energy and to predicte the amont of production basing on demand history for each region. To do this, we represented the data that we have in four ways : 
@@ -24,4 +26,5 @@ Our work aim to help producers of energy, the users and also public function ser
 
 
 
-
+## Link to Video : 
+https://www.youtube.com/watch?v=3WGgQxnGbuw&feature=youtu.be
