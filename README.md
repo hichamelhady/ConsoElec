@@ -76,7 +76,7 @@ Of course you can select a specific target ( e.g. Ile de France -> Conso tertiai
 # Stacked/Grouped Bar chart :
 
 <figure>
-  <p align="center"> <img src="/Img_project_final/grouped.JPG" />
+  <p align="center"> <img src="/Img_project_final/grouped.JPG" width=100%/>
 </figure>
 
 ## Link to Video : 
