@@ -15,6 +15,8 @@ Project done by :
 
       Link to Video 
       
+      Improvements (Please go to Update.MD)
+      
       Conclusion
 
       Resources and credits 
@@ -103,6 +105,10 @@ The Stacked version is also important because it gives the sum energy produced e
 <p align="center"> <i>Youtube </i> </p>
     <p align=justify>
 </p>
+
+## Improvements: 
+
+Please go to Update.MD !
 
 ## Conclusion: 
 
