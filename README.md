@@ -68,7 +68,9 @@ Of course you can select a specific target ( e.g. Ile de France -> Conso tertiai
 
 # Stacked/Grouped Bar chart :
 
-![Sheet6](/Img_project_final/grouped.JPG)
+<figure>
+  <p align="center"> <img src="/Img_project_final/grouped.JPG" width=80% />
+</figure>
 
 ## Link to Video : 
 
