@@ -43,4 +43,4 @@
 
 * Le dernier graphe devrait évoluer en fonction de la région sélectionnée
             
-    Not fixed : 
+    Not fixed : we have tried to synchronise the sankey diagram with the map but we could'nt fixe it ! it's due to datasets : We found many troubles with data so we have decided to separate the data to many datasets during the data pre-processing !
