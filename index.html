@@ -595,7 +595,12 @@ d3.csv("DATA/dataprod.csv", function(data) {
 		  .attr("class", "legend")
 		  .attr("transform", function(d,i) { return "translate(-800," + (i+1)* 25 + ")"; })
 		  .style("opacity","1");
-
+	svgp.append("text")
+         .attr("x", (width / 3.))             
+        .attr("y", 0 + 2.5*(margin3.top))
+        .style("font-size", "30px") 
+        .style("text-decoration", "underline")  
+        .text("Energie annuelle produite en MWh");
 	  legend.append("rect")
 		  .attr("x", width + 75)
 		  .attr("width", 18)
