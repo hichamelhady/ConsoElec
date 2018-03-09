@@ -36,7 +36,7 @@ Our website looks like this :
 # Radar chart :
 
 ![Sheet4](/Img_project_final/radarchart.JPG)
-
+- The Radar chart, as it’s shown above, present the electricity consumption per field.
 # Sankey diagram:
 
 ![Sheet5](/Img_project_final/sankey.JPG)
