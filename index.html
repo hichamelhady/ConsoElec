@@ -109,13 +109,21 @@
     
   </div>
 	<HR size=2 align=center width="100%">
-    
-    <div>
+ <div>
+  	<form>
+ 		 <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
+		  <label><input type="radio" name="mode" value="grouped"> Grouped</label>
+	</form>
+ 	 <div id="diagprod" style="background-color: snow;  display: inline-block;border: solid black 2px;">
+ 	 </div>
+
+</div>
+<div>
       	 <div id="mapzone" style="background-color: snow;  display: inline-block;border: solid black 2px;"></div>
       	 <div id="area2" style="background-color: snow;  display: inline-block;border: solid black 2px;"></div>
 	 <div id="Sankeydiag" style="background-color: snow; display: inline-block; border: solid black 2px;"></div>
 
-  </div>
+</div>
     
     
     <script>
@@ -391,6 +399,203 @@ var svg = d3.select('#area2')
 		
 		
 	//-------------------------------------------------------------------------------------------------------------------------------
+// References :
+--> Mainly inspired by http://bl.ocks.org/mbostock/3943967 (Mike Bostock’s Block 3943967)
+  
+var margin3 = {top: 10, right: 10, bottom: 10, left: 50},
+    width = 960 - margin3.left - margin3.right,
+    height = 500 - margin3.top - margin3.bottom;
+ 
+// Scale definition
+var x = d3.scaleBand()
+	.range([0, width])
+	.padding(0.4);
+  
+var x1 = d3.scaleBand()
+  .padding(0.1);
+  
+var yBar = d3.scaleLinear()
+	.range([height, 0]);
+  
+var yStack = d3.scaleLinear()
+  .range([height, 0]);
+
+var color = d3.scaleOrdinal()
+	.domain(["Photovoltaïque","Eolien","Cogénération","Hydraulique", "Autres"]) 	// Defined here, doesn't work into csv loop...
+	.range(["blue", "orange", "green", "purple", "brown"]);
+
+// Axis (Pre)definition
+var xPreAxis = d3.axisBottom()
+    .scale(x)
+    .tickSize(0);
+
+var yPreAxis = d3.axisLeft(yStack);
+
+// Graphical environment
+var svgp = d3.select("#diagprod").append("svg")
+	.attr("width", width + margin3.left + margin3.right)
+	.attr("height", height + margin3.top + margin3.bottom);
+
+// Group for all plots
+var g = svgp.append("g")
+	.attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");	
+  
+d3.csv("DATA/dataprod.csv", function(data) {
+	
+	//**************************************************//
+	//								Data Preprocessing 								//
+	//**************************************************//
+	
+	// Parse time
+	var parseTime = d3.timeParse("%Y");
+	var formatTime = d3.timeFormat("%Y");
+
+	// Nest Data by year
+	var nest_by_year = d3.nest()
+  	.key(function(d) {return formatTime(parseTime(d.date)); })
+  	.entries(data);
+  
+	var transitional_data = [];
+
+	nest_by_year.forEach(function(KeyYear) {
+    
+	// Nest data by symbol ("MSFT","AMZN","IBM", "AAPL")
+    var nest_by_symbol = d3.nest()
+    	.key(function(d) {return d.symbol; })
+    	.rollup(function(v) {return d3.mean(v,function(d) {return d.price; })})
+    	.object(KeyYear.values);
+    
+    transitional_data.push({
+      key: +KeyYear.key,
+      values: nest_by_symbol
+    });
+  });
+  
+  var final_data = transitional_data.map(function(d) {
+    var merged = { year: d.key };
+
+    // Copy each key-val pair of d.values into merged
+    Object.keys(d.values).forEach(function(key) {
+      merged[key] = d.values[key];
+    });
+    return merged;
+  });
+  
+	// Get names and update scales
+	var companiesNames = d3.keys(final_data[0]).slice(1);
+  
+	var totals = [];
+	final_data.forEach(function(d){
+		totals.push(d3.sum(companiesNames, function(key) {return d[key]; }))
+	});
+  
+	x.domain(final_data.map(function(d) {return d.year; }));
+	x1.domain(companiesNames).range([0, x.bandwidth()]);
+	yBar.domain([0, d3.max(final_data, function(d) {return d3.max(companiesNames, function(key) {return d[key]; }); })]);
+	yStack.domain([0, d3.max(totals)]);
+
+	var group = g
+		.selectAll("g")
+		.data(d3.stack().keys(companiesNames)(final_data))
+		.enter().append("g")
+		.attr("fill", function(d) { return color(d.key); });
+	  
+	var rect = group.selectAll("rect")
+		.data(function(d) {return d; })
+		.enter().append("rect")
+		  .attr("x", function(d) {return x(d.data.year); })
+		  .attr("y", function(d) {return yStack(d[1]); })
+		  .attr("height", function(d) {return yStack(d[0]) - yStack(d[1]); })
+		  .attr("width", x.bandwidth());
+  
+  	// Axis creation
+	var xAxis = g.append("g")
+		  .attr("class", "x axis")
+		  .attr("transform", "translate(0," + height + ")")
+		  .call(xPreAxis);
+
+	var yAxis = g.append("g")
+		.attr("class", "y axis")
+		.style('opacity','1')
+		.attr("transform", "translate(20,0)")
+		.call(yPreAxis)
+		.attr("y", 6)
+		.attr("dy", ".71em")
+		.style("text-anchor", "end")
+		.style('font-weight','bold');
+  
+  
+	//**************************************************//
+	//					Transitions 					//
+	//**************************************************//  
+  
+	d3.selectAll("input")
+  	.on("change", changed);
+  
+	function changed() {
+  	if (this.value === "grouped") transitionGroupedChart();
+  	else transitionStackedChart();
+	}
+  
+	  function transitionGroupedChart() {
+		rect
+		  .transition().duration(750)
+			.attr("width", x1.bandwidth())
+			.transition().duration(1200)
+			.attr("x", function(d,i) {return x(d.data.year) + x1(this.parentNode.__data__.key)})
+			.transition().duration(1200)
+			.attr("y", function(d) {return yBar(d[1] - d[0]); })
+			.attr("height", function(d) {return yBar(0) - yBar(d[1]-d[0]); });
+		
+		yAxis
+			.transition()
+		  .call(d3.axisLeft(yBar));
+	  };
+  
+    function transitionStackedChart() {
+    rect
+      .transition().duration(1200)
+      	.attr("y", function(d) {return yStack(d[1] - d[0]); })
+      	.attr("height", function(d) {return yStack(d[0]) - yStack(d[1]); })
+    	.transition().duration(1200)
+      	.attr("y", function(d) {return yStack(d[1]); })
+    	.transition().duration(750)
+        .attr("x", function(d) {return x(d.data.year); })
+      	.attr("width", x.bandwidth());
+      
+      yAxis
+      	.transition()
+        .call(d3.axisLeft(yStack));
+  };
+// End of data processing
+});
+
+	//**************************************************//
+	//						Legend 						//
+	//**************************************************//
+
+	  
+	  var legend = svgp.selectAll(".legend")
+		  .data(color.domain().reverse())
+		  .enter()
+		  .append("g")
+		  .attr("class", "legend")
+		  .attr("transform", function(d,i) { return "translate(-800," + (i+1)* 25 + ")"; })
+		  .style("opacity","1");
+
+	  legend.append("rect")
+		  .attr("x", width - 16)
+		  .attr("width", 18)
+		  .attr("height", 18)
+		  .style("fill", function(d) { return color(d); });
+
+	  legend.append("text")
+		  .attr("x", width - -108)
+		  .attr("y", 9)
+		  .attr("dy", ".35em")
+		  .style("text-anchor", "end")
+		  .text(function(d) {return d; });
+
 </script>
 
 <footer style="background-color :wheat;padding-bottom: 0.1px;padding-top: 0.1px;bottom: 0;position : fixed; 	width: 100%;">
