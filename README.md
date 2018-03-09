@@ -10,10 +10,11 @@ Project done by :
 <ol id="navigation"> 
 <li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md#Source of data: ENEDIS open data-" t>Source of data: ENEDIS open data</a></li> 
 <li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md#Data visualisation - Goal of the project-" t>Data visualisation - Goal of the project</a></li> 
-<li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md#what-is-this-" t>What is this</a></li> 
-<li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md#what-is-this-" t>What is this</a></li> 
+<li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md#Link to Video -" t>Link to Video </a></li> 
+<li><a href="https://github.com/hichamelhady/ConsoElec/edit/master/README.md#Resources and credits :-" t>Resources and credits :</a></li> 
 
 </ol>
+
 ## Source of data: ENEDIS open data
 
 Enedis is a public service company, which manage the electricity distribution network to more than 35 million client. It developes, implementes and modernise the electricity. It particularly works on data from electricity meters. With the energy transiton and the talks about smartcities and modernisation, ENEDIS created a website, in whcih they let free acces to their data. 
