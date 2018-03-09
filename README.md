@@ -1,24 +1,24 @@
 # ConsoElec  - An interactive way to understand the electricity consomation
 
-Projet réalisé par : 
+Projet dobe by : 
 - EL BOUJDAINI Idriss 
 - EL-HADY Hicham 
 - LIU Kun  
 
-## Data visualisation - source of data: ENEDIS
+## Source of data: ENEDIS open data
 
-Enedis is a public service company, which manage the eclectricity distribution net. It develope, implimente and modernnise the electricity and provide the realted dates.
+Enedis is a public service company, which manage the eclectricity distribution . It developes, implementes and modernnise the electricity and provide the realted dates.
 
-The data are available for us to use on their website, consisting of the average yearly eletricity comsommation that are sorted by total number, regione and activity sectors. 
+The data are available for us to use on their website, consisting of the average yearly eletricity consommation that are sorted by total number, regions and activity sectors. But also the sum of electricity production for many years sorted by the way of producuction (solar, hydraulic, Cogeneration or others)  
 
 ## Data visualisation - Goal of the project
-Our work aim to help update the data with the new intelligent visualisation interacting the the data. It mainly has 3 parts: 
+Our work aim to help producers of energy, the users and also public function services to control their consommation of electricla energy and to predicte the amont of production basing on demand history for each region. To do this, we represented the data that we have in four ways : 
 
-- Diagram of sankey representing the flow of electrical energy consumption in different sectors of activity
+- Diagram of sankey representing the flow of electrical energy consumption in different sectors of activity sorted by regions
 
-- Geomapping with a visualization of energy consumption by region, by sector of activity
+- Geomapping with a visualization of demography of each region and when we choose a region, an other graph appears to presesnts the energy consumption for the selected region, sorted by sector of activity for each unit.
 
-- Possibly a graph of the temporal evolution of the energy consumption for each region (at the click of the mouse)
+- A grouped/ stacked bar chart visualising the temporal evolution of the energy production in france.
 
 ## Data visualisation - Results of the project ConsoElec
 
