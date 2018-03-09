@@ -1,4 +1,4 @@
-# ConsoElec  - An interactive way to understand the electricity consomation
+# ConsoElec  - An interactive way to understand the electricity consumption
 
 Project done by : 
 - EL BOUJDAINI Idriss 
@@ -9,10 +9,10 @@ Project done by :
 
 Enedis is a public service company, which manage the eclectricity distribution . It developes, implementes and modernnise the electricity and provide the realted dates.
 
-The data are available for us to use on their website, consisting of the average yearly eletricity consommation that are sorted by total number, regions and activity sectors. But also the sum of electricity production for many years sorted by the way of producuction (solar, hydraulic, Cogeneration or others)  
+The data are available for us to use on their website, consisting of the average yearly eletricity consumption that are sorted by total number, regions and activity sectors. But also the sum of electricity production for many years sorted by the way of producuction (solar, hydraulic, Cogeneration or others)  
 
 ## Data visualisation - Goal of the project
-Our work aim to help producers of energy, the users and also public function services to control their consommation of electricla energy and to predicte the amont of production basing on demand history for each region. To do this, we represented the data that we have in four ways : 
+Our work aim to help producers of energy, the users and also public function services to control their consumption of electricla energy and to predicte the amont of production basing on demand history for each region. To do this, we represented the data that we have in four ways : 
 
 - Diagram of sankey representing the flow of electrical energy consumption in different sectors of activity sorted by regions
 
