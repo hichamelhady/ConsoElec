@@ -29,7 +29,7 @@
 
 * Changement dynamique de l'échelle du radar chart
 
-    Fixed : We can now read on the radar chart the values
+    Fixed : We can now read on the radar chart the values changes for every region
 
 * Site Electricity Map : Permet de visualiser la consommation électrique des différents pays dans le monde, en “quasi” instantané.
 
