@@ -24,7 +24,7 @@ Enedis is a public service company, which manage the electricity distribution ne
 
 [If you are curious and you are interested in learning more about ENEDIS Open data ! Click now ](https://data.enedis.fr/page/accueil/?flg=fr)
 
-The data is available is consisting of the eletricity consumption sorted by total number of people using it, regions and activity sectors. But also the sum of electricity production for many years sorted by the way of producuction (solar, hydraulic, Cogeneration or others)  
+The data  available is consisting of the eletricity consumption sorted by total number of people using it, regions and activity sectors. But also the sum of electricity production for many years sorted by the way of producuction (solar, hydraulic, Cogeneration or others)  
 
 ## Data visualisation - Goal of the project
 Our work aim to help producers of energy, the users and also public function services to control their consumption of electricla energy and to predicte the amont of production basing on demand history for each region. To do this, we represented the data that we have in four ways : 
