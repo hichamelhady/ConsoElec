@@ -35,9 +35,11 @@ Changement dynamique de l'échelle du radar chart
 
 Site Electricity Map : Permet de visualiser la consommation électrique des différents pays dans le monde, en “quasi” instantané.
 
-    Done : Based on the conception of this website, we added another chart representing the data of production this time !
+    Done : Based on the conception of this website, we added another chart representing the data of production !
     
-    It is a Grouped / Stacked Bar chart representing the electricty production sorted by the way of its production. 
+    It is a Grouped / Stacked Bar chart representing the electricty production 
+    
+    sorted by the way of its production. 
 
 Affecte -> “Autres”, et harmoniser les légendes (majuscules en première lettre, etc…)
        
