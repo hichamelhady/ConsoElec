@@ -41,4 +41,9 @@ Our website looks like this :
 
 * [Stacked / grouped bar chart inspired from Mike Bostock’s Block 3943967](http://bl.ocks.org/mbostock/3943967)
 
+* [Radar chart inspired from alandunning’s Block ](http://blockbuilder.org/alandunning/4c36eb1abdb248de34c64f5672afd857)
+
+* [Sankey diagram inspired from HarryStevens’s Block ](http://blockbuilder.org/HarryStevens/0a437a96e9a2aa2408adbd32b1853cc3)
+
 * [ENEDIS Open DATA webesite](https://data.enedis.fr/page/accueil/?flg=fr)
+
